@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Script from "next/script";
 
 function Divisor({ de, para }: { de: string; para: string }) {
   return (
@@ -219,32 +218,19 @@ export default function HomePage() {
 
       <Divisor de="var(--violeta)" para="var(--creme)" />
 
-      {/* ============ VÍDEO (INSTAGRAM) ============ */}
+      {/* ============ VÍDEO ============ */}
       <section className="secao-video">
         <div className="container">
           <p className="titulo-secao fundo-claro surge-scroll">Vê o Reel</p>
           <div className="linha-ouro surge-scroll" />
           <div className="video-embed-wrap surge-scroll">
-            <blockquote
-              className="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DZhyGEmKQPq/?utm_source=ig_web_copy_link"
-              data-instgrm-version="14"
-              style={{
-                background: "#FFF",
-                border: 0,
-                borderRadius: 3,
-                boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
-                margin: "1px auto",
-                maxWidth: 540,
-                minWidth: 326,
-                padding: 0,
-                width: "calc(100% - 2px)",
-              }}
-            />
+            <video controls playsInline poster="/assets/livro/capa-frontal.webp" className="video-nativo">
+              <source src="/assets/video/reel-entre-mundos.mp4" type="video/mp4" />
+              O teu navegador não suporta vídeo incorporado.
+            </video>
           </div>
         </div>
       </section>
-      <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
 
       <DivisorInverso de="var(--creme)" para="var(--sombra)" />
 
