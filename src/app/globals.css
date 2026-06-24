@@ -920,6 +920,19 @@ section { position: relative; }
 }
 
 /* ============================================================
+   SECÇÃO — VÍDEO (INSTAGRAM)
+   ============================================================ */
+.secao-video {
+  background: var(--creme);
+  padding: 110px 24px;
+  text-align: center;
+}
+.video-embed-wrap {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ============================================================
    SECÇÃO — SINOPSE
    ============================================================ */
 .secao-sinopse {
