@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const descricao =
+  "Entre em contacto com A. Phoenix, autora de Entre Mundos: O Chamado — para pedidos de entrevista, parcerias ou apenas para dizer olá.";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description: descricao,
+  openGraph: { title: "Contacto — A. Phoenix", description: descricao },
+  twitter: { card: "summary_large_image", title: "Contacto — A. Phoenix", description: descricao },
+};
 
 export default function ContatoPage() {
   return (

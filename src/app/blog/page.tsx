@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const descricao = "Bastidores, reflexões e segredos do universo de Entre Mundos: O Chamado, escritos por A. Phoenix.";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: descricao,
+  openGraph: { title: "Blog — A. Phoenix", description: descricao },
+  twitter: { card: "summary_large_image", title: "Blog — A. Phoenix", description: descricao },
+};
 
 type Post = {
   categoria: "bastidores" | "reflexoes" | "universo";

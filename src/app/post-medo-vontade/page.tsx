@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "Sobre os dias em que a página em branco parece um abismo — e sobre escolher escrever mesmo assim. Reflexões de A. Phoenix sobre medo e criação.";
+
+export const metadata: Metadata = {
+  title: "Escrever quando o medo é maior do que a vontade — Blog",
+  description: descricao,
+  openGraph: { title: "Escrever quando o medo é maior do que a vontade — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "Escrever quando o medo é maior do que a vontade — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostMedoVontadePage() {
   return (

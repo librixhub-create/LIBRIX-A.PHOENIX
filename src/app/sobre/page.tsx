@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const descricao =
+  "Conheça A. Phoenix, autora de Entre Mundos: O Chamado — a sua história, a sua voz e o universo que a inspira a escrever.";
+
+export const metadata: Metadata = {
+  title: "Sobre a Autora",
+  description: descricao,
+  openGraph: { title: "Sobre a Autora — A. Phoenix", description: descricao, images: ["/assets/logo/logo-560.webp"] },
+  twitter: { card: "summary_large_image", title: "Sobre a Autora — A. Phoenix", description: descricao, images: ["/assets/logo/logo-560.webp"] },
+};
 
 export default function SobrePage() {
   return (

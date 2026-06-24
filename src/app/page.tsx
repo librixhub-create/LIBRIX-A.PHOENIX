@@ -21,9 +21,33 @@ function DivisorInverso({ de, para }: { de: string; para: string }) {
   );
 }
 
+const livroJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Entre Mundos: O Chamado",
+  author: { "@type": "Person", name: "A. Phoenix" },
+  bookFormat: "https://schema.org/Hardcover",
+  isPartOf: { "@type": "BookSeries", name: "Entre Mundos" },
+  position: 1,
+  numberOfPages: 324,
+  inLanguage: "pt-PT",
+  datePublished: "2026",
+  publisher: { "@type": "Organization", name: "Librix Hub" },
+  image: "/assets/livro/capa-frontal.webp",
+  description:
+    "Quando uma fenda invisível se abre entre mundos, nada permanece intocado. Gabrielle torna-se o centro de uma disputa ancestral entre a luz e a escuridão.",
+  offers: {
+    "@type": "Offer",
+    price: "14.90",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(livroJsonLd) }} />
       <Nav home />
 
       {/* ============ HERO ============ */}

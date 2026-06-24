@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "Como uma saga nasceu de um silêncio: os bastidores da escrita de Entre Mundos: O Chamado, por A. Phoenix.";
+
+export const metadata: Metadata = {
+  title: "Os Bastidores de Entre Mundos — Blog",
+  description: descricao,
+  openGraph: { title: "Os Bastidores de Entre Mundos — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "Os Bastidores de Entre Mundos — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostTemplatePage() {
   return (

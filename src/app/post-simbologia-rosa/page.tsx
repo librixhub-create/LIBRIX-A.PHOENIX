@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "Porque a rosa se tornou o símbolo de Entre Mundos: O Chamado — sobre beleza, espinhos e tudo o que escolhemos proteger, por A. Phoenix.";
+
+export const metadata: Metadata = {
+  title: "A simbologia da rosa em Entre Mundos — Blog",
+  description: descricao,
+  openGraph: { title: "A simbologia da rosa em Entre Mundos — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "A simbologia da rosa em Entre Mundos — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostSimbologiaRosaPage() {
   return (

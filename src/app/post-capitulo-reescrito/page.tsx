@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "A história certa só aparece, por vezes, depois de termos coragem de apagar a errada: os bastidores do dia em que A. Phoenix reescreveu o capítulo mais importante de Entre Mundos.";
+
+export const metadata: Metadata = {
+  title: "Entre rascunhos e revelações — Blog",
+  description: descricao,
+  openGraph: { title: "Entre rascunhos e revelações — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "Entre rascunhos e revelações — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostCapituloReescritoPage() {
   return (

@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "Entre névoas, ruas antigas e segredos de pedra: porque A. Phoenix escolheu Londres como cenário — e personagem — de Entre Mundos: O Chamado.";
+
+export const metadata: Metadata = {
+  title: "Londres como palco — Blog",
+  description: descricao,
+  openGraph: { title: "Londres como palco — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "Londres como palco — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostLondresPalcoPage() {
   return (

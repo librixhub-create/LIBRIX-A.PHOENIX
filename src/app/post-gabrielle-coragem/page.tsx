@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import PostArticle from "@/components/PostArticle";
+
+const descricao =
+  "Gabrielle nasceu marcada por segredos que nem ela compreende — e escrevê-la obrigou A. Phoenix a confrontar os seus próprios medos. Os bastidores de uma personagem que se tornou espelho.";
+
+export const metadata: Metadata = {
+  title: "Gabrielle: A personagem que me ensinou a ser corajosa — Blog",
+  description: descricao,
+  openGraph: { title: "Gabrielle: A personagem que me ensinou a ser corajosa — Blog de A. Phoenix", description: descricao, type: "article" },
+  twitter: { card: "summary_large_image", title: "Gabrielle: A personagem que me ensinou a ser corajosa — Blog de A. Phoenix", description: descricao },
+};
 
 export default function PostGabrielleCoragemPage() {
   return (
