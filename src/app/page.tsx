@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FlipbookAmostra from "@/components/FlipbookAmostra";
 
 function Divisor({ de, para }: { de: string; para: string }) {
   return (
@@ -251,7 +252,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <DivisorInverso de="var(--sombra-leve)" para="var(--violeta)" />
+      <Divisor de="var(--sombra)" para="var(--branco-puro)" />
+
+      {/* ============ AMOSTRA GRÁTIS (FLIPBOOK) ============ */}
+      <section className="secao-amostra">
+        <div className="container">
+          <p className="titulo-secao fundo-claro surge-scroll">Amostra Grátis</p>
+          <div className="linha-ouro surge-scroll" />
+          <h2 className="amostra-titulo surge-scroll">Lê as Primeiras Páginas</h2>
+          <p className="amostra-intro surge-scroll">Um fragmento do Capítulo 1 — vira a página para continuar.</p>
+          <div className="surge-scroll">
+            <FlipbookAmostra />
+          </div>
+        </div>
+      </section>
+
+      <DivisorInverso de="var(--branco-puro)" para="var(--violeta)" />
 
       {/* ============ A SAGA EM NÚMEROS ============ */}
       <section className="secao-stats" id="stats">

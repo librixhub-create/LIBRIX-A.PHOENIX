@@ -972,6 +972,141 @@ section { position: relative; }
 .sinopse-cta { margin-top: 50px; text-align: center; }
 
 /* ============================================================
+   SECÇÃO — AMOSTRA GRÁTIS (FLIPBOOK)
+   ============================================================ */
+.secao-amostra {
+  background: var(--branco-puro);
+  padding: 130px 24px;
+  text-align: center;
+}
+.amostra-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 0.04em;
+  color: var(--sombra);
+  margin-bottom: 18px;
+}
+.amostra-intro {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--texto-suave);
+  max-width: 560px;
+  margin: 0 auto 50px;
+}
+
+.flipbook-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flipbook {
+  position: relative;
+  width: min(340px, 80vw);
+  aspect-ratio: 0.7;
+  perspective: 2200px;
+}
+.flipbook-pagina {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition: transform 0.85s cubic-bezier(0.45, 0.05, 0.15, 1);
+}
+.flipbook-pagina--virada { transform: rotateY(-178deg); }
+.flipbook-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  box-shadow: 8px 14px 34px rgba(13, 13, 26, 0.28);
+  background: var(--creme);
+}
+.flipbook-face--verso {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #efe7d8, #e2d8c6);
+}
+.flipbook-imagem { width: 100%; height: 100%; object-fit: cover; }
+.flipbook-texto {
+  height: 100%;
+  padding: 26px 22px;
+  overflow-y: auto;
+  text-align: left;
+}
+.flipbook-texto-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--ouro-escuro);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+.flipbook-texto p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--sombra);
+  margin-bottom: 12px;
+}
+.flipbook-texto-final { font-style: italic; color: var(--texto-suave); margin-bottom: 0; }
+.flipbook-bloqueado {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--sombra);
+  color: var(--ouro);
+  padding: 30px;
+  text-align: center;
+}
+.flipbook-bloqueado svg { width: 40px; height: 40px; margin-bottom: 6px; }
+.flipbook-bloqueado-titulo {
+  font-family: var(--fonte-ui);
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.flipbook-bloqueado-sub {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--creme);
+  opacity: 0.85;
+}
+.flipbook-controlos {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 30px;
+}
+.flipbook-seta {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--ouro);
+  background: transparent;
+  color: var(--ouro-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+.flipbook-seta svg { width: 18px; height: 18px; }
+.flipbook-seta:hover:not(:disabled) { background: var(--ouro); color: var(--sombra); }
+.flipbook-seta:disabled { opacity: 0.3; cursor: not-allowed; }
+.flipbook-paginacao {
+  font-family: var(--fonte-ui);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--texto-suave);
+}
+
+/* ============================================================
    SECÇÃO — A SAGA EM NÚMEROS (estatísticas com contadores)
    ============================================================ */
 .secao-stats {
