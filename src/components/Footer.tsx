@@ -18,7 +18,7 @@ export default function Footer({ editora = false }: FooterProps) {
         <li><a href="/imprensa">Imprensa</a></li>
       </ul>
       <div className="rodape-redes">
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://www.instagram.com/aphoenix_escritora/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" /></svg>
         </a>
         <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">

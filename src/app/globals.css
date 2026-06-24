@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
-
 /* ============================================================
    VARIÁVEIS GLOBAIS
+   As fontes (--fonte-titulo, --fonte-sub, --fonte-corpo, --fonte-ui)
+   são definidas via next/font no layout.tsx, não aqui — isso permite
+   que o Next.js as auto-hospede e otimize o carregamento.
    ============================================================ */
 :root {
   --creme:        #F5F0E8;
@@ -15,11 +16,6 @@
   --texto-suave:  #4F4653;
   --branco-puro:  #FFFFFF;
   --sombra-leve:  #2D2440;
-
-  --fonte-titulo: 'Cinzel Decorative', cursive;
-  --fonte-sub:    'Lora', serif;
-  --fonte-corpo:  'EB Garamond', serif;
-  --fonte-ui:     'Cinzel', serif;
 
   --max-largura: 1180px;
   --transicao: 0.35s ease;
