@@ -1951,6 +1951,82 @@ section { position: relative; }
 .confirmacao-form.mostrar { display: block; }
 
 /* ============================================================
+   PÁGINA IMPRENSA / MEDIA KIT
+   ============================================================ */
+.secao-imprensa {
+  background: var(--branco-puro);
+  padding: 110px 24px 140px;
+}
+.imprensa-bloco {
+  max-width: 760px;
+  margin: 0 auto 90px;
+}
+.imprensa-bloco:last-child { margin-bottom: 0; }
+.imprensa-bloco h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(26px, 3.4vw, 34px);
+  color: var(--sombra);
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.imprensa-bloco p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--sombra);
+  margin-bottom: 20px;
+}
+.imprensa-ficha-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 40px;
+}
+.imprensa-downloads {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.imprensa-download-card {
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  background: var(--creme);
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+.imprensa-download-card:hover { border-color: var(--ouro); transform: translateY(-4px); }
+.imprensa-download-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sombra);
+  padding: 18px;
+}
+.imprensa-download-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.imprensa-download-legenda {
+  padding: 16px 18px 6px;
+  font-family: var(--fonte-ui);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+.imprensa-download-card .botao {
+  margin: 14px 18px 18px;
+  width: calc(100% - 36px);
+}
+
+@media (max-width: 760px) {
+  .secao-imprensa { padding-top: 90px; padding-bottom: 90px; }
+  .imprensa-downloads { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .imprensa-ficha-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    ANIMAÇÃO DE ENTRADA POR SCROLL
    ============================================================ */
 .surge-scroll {

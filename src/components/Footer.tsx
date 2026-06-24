@@ -15,6 +15,7 @@ export default function Footer({ editora = false }: FooterProps) {
         <li><a href="/blog">Blog</a></li>
         <li><a href="/#o-livro">Adquirir</a></li>
         <li><a href="/contato">Contacto</a></li>
+        <li><a href="/imprensa">Imprensa</a></li>
       </ul>
       <div className="rodape-redes">
         <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
