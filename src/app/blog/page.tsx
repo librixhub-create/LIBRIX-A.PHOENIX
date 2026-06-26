@@ -11,6 +11,23 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Blog — A. Phoenix", description: descricao },
 };
 
+type Personagem = {
+  slug: string;
+  nome: string;
+  papel: string;
+  foto: string;
+};
+
+const personagens: Personagem[] = [
+  { slug: "gabrielle", nome: "Gabrielle Dubois", papel: "A Alma que Lembra",              foto: "/assets/personagens/gabrielle-dubois.jpeg" },
+  { slug: "ethan",     nome: "Ethan Smith",      papel: "O Que Carrega o Silêncio",       foto: "/assets/personagens/ethan-smith.jpeg" },
+  { slug: "arael",     nome: "Arael",            papel: "O Guardador do Véu",             foto: "/assets/personagens/arael.jpeg" },
+  { slug: "angeli",    nome: "Angeli Dubois",    papel: "A Mãe que Sabe Mais do que Diz", foto: "/assets/personagens/angeli-dubois.jpeg" },
+  { slug: "asha",      nome: "Asha",             papel: "A que Vigia o Silêncio",         foto: "/assets/personagens/asha.jpeg" },
+  { slug: "amirah",    nome: "Amirah",           papel: "A Sacerdotisa que Não Descansou",foto: "/assets/personagens/amirah.jpeg" },
+  { slug: "loui",      nome: "Loui",             papel: "A Melodia que Ficou",            foto: "/assets/personagens/loui.jpeg" },
+];
+
 type Post = {
   categoria: "bastidores" | "reflexoes" | "universo";
   rotulo: string;
@@ -128,6 +145,38 @@ export default function BlogPage() {
                   <p>{post.resumo}</p>
                   <span className="data-post">{post.data}</span>
                   <a href={post.href} className="ler-mais">Ler mais →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ DIVISOR ============ */}
+      <div className="divisor" style={{ "--cor-divisor-de": "var(--branco-puro)", "--cor-divisor-para": "var(--sombra)" } as React.CSSProperties}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,64 C360,0 1080,0 1440,64 L1440,64 L0,64 Z" />
+        </svg>
+      </div>
+
+      {/* ============ PERSONAGENS ============ */}
+      <section className="secao-personagens">
+        <div className="container">
+          <p className="titulo-secao">Os Personagens</p>
+          <div className="linha-ouro"></div>
+          <p className="personagens-intro surge-scroll">
+            Conhece as almas que habitam o universo de <em>Entre Mundos</em> — cada uma com os seus segredos, as suas feridas e o seu papel na história que está prestes a desdobrar-se.
+          </p>
+          <div className="personagens-grid">
+            {personagens.map((p) => (
+              <article className="card-personagem surge-scroll" key={p.slug}>
+                <div className="card-personagem-foto-wrap">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.foto} alt={p.nome} className="card-personagem-foto" loading="lazy" />
+                </div>
+                <div className="card-personagem-info">
+                  <p className="card-personagem-nome">{p.nome}</p>
+                  <p className="card-personagem-papel">{p.papel}</p>
                 </div>
               </article>
             ))}
