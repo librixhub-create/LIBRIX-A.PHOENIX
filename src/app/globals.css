@@ -5,22 +5,31 @@
    que o Next.js as auto-hospede e otimize o carregamento.
    ============================================================ */
 :root {
-  --creme:        #F5F0E8;
-  --sombra:       #1A1A2E;
-  --sombra-profunda: #0D0D1A;
-  --violeta:      #4A3F6B;
-  --violeta-claro:#8B7FBB;
-  --ouro:         #C9A96E;
-  --ouro-escuro:  #7A5A1E;
-  --cinza-suave:  #8B8090;
-  --texto-suave:  #4F4653;
-  --branco-puro:  #FFFFFF;
-  --sombra-leve:  #2D2440;
+  /* ── Paleta Glassmorphism ── */
+  --creme:           #EDE9F8;   /* lavanda muito claro */
+  --sombra:          #08081C;   /* azul-negro profundo */
+  --sombra-profunda: #04040E;   /* quase preto com azul */
+  --violeta:         #2D1760;   /* roxo escuro vibrante */
+  --violeta-claro:   #A78BFA;   /* roxo brilhante */
+  --ouro:            #C9A96E;   /* ouro — mantido como acento cálido */
+  --ouro-escuro:     #7A5A1E;
+  --cinza-suave:     #A09DC0;   /* cinza lilás */
+  --texto-suave:     #7C78A0;   /* texto secundário */
+  --branco-puro:     #FFFFFF;
+  --sombra-leve:     #1E1B4B;   /* índigo escuro */
+
+  /* Glassmorphism */
+  --vidro:           rgba(255, 255, 255, 0.06);
+  --vidro-hover:     rgba(255, 255, 255, 0.10);
+  --vidro-borda:     rgba(255, 255, 255, 0.14);
+  --vidro-borda-hover: rgba(167, 139, 250, 0.45);
+  --roxo-vivo:       #7C3AED;
+  --roxo-brilho:     #8B5CF6;
+  --acento-glow: rgba(124, 58, 237, 0.35);
 
   --max-largura: 1180px;
   --transicao: 0.35s ease;
 
-  /* Textura de ruído reutilizável — confere profundidade/atmosfera aos fundos escuros */
   --textura-ruido: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
@@ -185,22 +194,31 @@ section { position: relative; }
 .botao:hover::after { transform: scale(2.4); }
 
 .botao-solido {
-  background: var(--ouro);
-  color: var(--sombra);
+  background: linear-gradient(135deg, var(--roxo-vivo) 0%, var(--roxo-brilho) 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 20px var(--acento-glow);
 }
 .botao-solido:hover {
-  background: var(--sombra-leve);
-  color: var(--ouro);
-  border-color: var(--ouro);
+  background: linear-gradient(135deg, #6D28D9 0%, var(--roxo-vivo) 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 32px var(--acento-glow);
+  transform: translateY(-2px);
 }
 
 .botao-contorno {
-  background: transparent;
-  color: var(--ouro);
+  background: var(--vidro);
+  color: var(--violeta-claro);
+  border-color: var(--vidro-borda-hover);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .botao-contorno:hover {
-  background: var(--ouro);
-  color: var(--sombra);
+  background: rgba(124, 58, 237, 0.18);
+  color: #fff;
+  border-color: var(--roxo-brilho);
+  box-shadow: 0 0 20px var(--acento-glow);
 }
 
 /* Variante usada sobre fundo claro, onde o contorno violeta lê melhor que o dourado */
@@ -246,10 +264,11 @@ section { position: relative; }
 
 .nav.nav-scroll {
   padding: 16px 0;
-  background: rgba(13, 13, 26, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 rgba(201, 169, 110, 0.18);
+  background: rgba(8, 8, 28, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(167, 139, 250, 0.2), 0 4px 24px rgba(4, 4, 14, 0.4);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.1);
 }
 
 .nav .container {
@@ -333,7 +352,7 @@ section { position: relative; }
 .nav-toggle.aberto span:nth-child(2) { opacity: 0; }
 .nav-toggle.aberto span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-.pagina-interior .nav { background: rgba(13, 13, 26, 0.92); padding: 16px 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.pagina-interior .nav { background: rgba(8, 8, 28, 0.80); padding: 16px 0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(167, 139, 250, 0.12); }
 
 /* ============================================================
    HERO (index) — textura, profundidade e revelação cinemática
@@ -348,8 +367,9 @@ section { position: relative; }
   overflow: hidden;
   background-color: var(--sombra);
   background-image:
-    radial-gradient(ellipse at 18% 50%, rgba(74, 63, 107, 0.42) 0%, transparent 60%),
-    radial-gradient(ellipse at 82% 18%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 50%, rgba(124, 58, 237, 0.38) 0%, transparent 58%),
+    radial-gradient(ellipse at 85% 15%, rgba(109, 40, 217, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 85%, rgba(45, 23, 96, 0.5)  0%, transparent 55%),
     var(--textura-ruido);
 }
 
@@ -369,9 +389,9 @@ section { position: relative; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 18% 50%, rgba(74, 63, 107, 0.5) 0%, transparent 58%),
-    radial-gradient(ellipse at 82% 18%, rgba(201, 169, 110, 0.16) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, transparent 32%, rgba(13, 13, 26, 0.72) 100%);
+    radial-gradient(ellipse at 15% 50%, rgba(124, 58, 237, 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(109, 40, 217, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(4, 4, 14, 0.75) 100%);
   pointer-events: none;
 }
 
@@ -455,28 +475,28 @@ section { position: relative; }
   filter: blur(72px);
 }
 .orb-1 {
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(74, 63, 107, 0.65), transparent 70%);
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.55), transparent 70%);
   top: 2%; left: -10%;
   animation: derivarOrbe 9s ease-in-out infinite;
 }
 .orb-2 {
-  width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(201, 169, 110, 0.2), transparent 70%);
-  bottom: 15%; right: 8%;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.35), transparent 70%);
+  bottom: 15%; right: 6%;
   animation: derivarOrbe 7.5s ease-in-out infinite;
   animation-delay: -3.5s;
 }
 .orb-3 {
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(74, 63, 107, 0.45), transparent 70%);
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 70%);
   top: 50%; left: 40%;
   animation: derivarOrbe 11s ease-in-out infinite;
   animation-delay: -6s;
 }
 .orb-4 {
-  width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(201, 169, 110, 0.14), transparent 70%);
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.22), transparent 70%);
   top: 12%; right: 28%;
   animation: derivarOrbe 8s ease-in-out infinite;
   animation-delay: -2s;
@@ -655,7 +675,7 @@ section { position: relative; }
    SECÇÃO — O LIVRO (produto) + MOCKUP 3D
    ============================================================ */
 .secao-livro {
-  background: var(--branco-puro);
+  background: linear-gradient(180deg, var(--creme) 0%, #F5F3FF 100%);
   padding: 130px 24px;
 }
 
@@ -849,8 +869,9 @@ section { position: relative; }
 .secao-audio {
   background-color: var(--violeta);
   background-image:
-    radial-gradient(ellipse at 85% 15%, rgba(201, 169, 110, 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse at 10% 90%, rgba(13, 13, 26, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(124, 58, 237, 0.3)  0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(8,  8,  28,  0.55)  0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 130px 24px;
@@ -1050,8 +1071,9 @@ section { position: relative; }
 .secao-sinopse {
   background-color: var(--sombra);
   background-image:
-    radial-gradient(ellipse at 12% 22%, rgba(74, 63, 107, 0.4) 0%, transparent 55%),
-    radial-gradient(ellipse at 88% 82%, rgba(201, 169, 110, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 12% 22%, rgba(124, 58, 237, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 88% 82%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(45, 23, 96,  0.4)  0%, transparent 60%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 130px 24px;
@@ -1217,9 +1239,10 @@ section { position: relative; }
 .secao-stats {
   background-color: var(--sombra);
   background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(124, 58, 237, 0.3)  0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
     linear-gradient(195deg, var(--sombra) 0%, var(--sombra-leve) 100%),
     var(--textura-ruido);
-  background-blend-mode: normal, overlay;
   color: var(--creme);
   padding: 100px 24px 120px;
   text-align: center;
@@ -1276,8 +1299,9 @@ section { position: relative; }
 .secao-quiz {
   background-color: var(--violeta);
   background-image:
-    radial-gradient(ellipse at 12% 18%, rgba(201, 169, 110, 0.12) 0%, transparent 55%),
-    radial-gradient(ellipse at 90% 88%, rgba(13, 13, 26, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 12% 18%, rgba(124, 58, 237, 0.38) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 88%, rgba(8,   8,  28, 0.55)  0%, transparent 55%),
+    radial-gradient(ellipse at 55% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 55%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 130px 24px;
@@ -1304,11 +1328,14 @@ section { position: relative; }
 .quiz-card {
   max-width: 720px;
   margin: 0 auto;
-  background: rgba(13, 13, 26, 0.3);
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 12px;
   padding: 44px 44px;
   text-align: left;
+  box-shadow: 0 8px 40px rgba(4, 4, 14, 0.5), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 /* ---- Barra de progresso ---- */
@@ -1649,7 +1676,10 @@ section { position: relative; }
    SECÇÃO — BLOG (preview + listagem) com cabeçalhos generativos
    ============================================================ */
 .secao-blog {
-  background: var(--branco-puro);
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(109, 40, 217, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #F5F3FF 0%, var(--creme) 100%);
   padding: 130px 24px;
 }
 
@@ -1662,11 +1692,13 @@ section { position: relative; }
 }
 
 .card-post {
-  border: 1px solid rgba(201, 169, 110, 0.3);
-  background: var(--branco-puro);
-  border-radius: 2px;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 8px;
   overflow: hidden;
-  transition: border-color var(--transicao), box-shadow var(--transicao);
+  transition: border-color var(--transicao), box-shadow var(--transicao), background var(--transicao);
   display: flex;
   flex-direction: column;
   will-change: transform;
@@ -1674,8 +1706,9 @@ section { position: relative; }
 }
 
 .card-post:hover {
-  border-color: var(--ouro);
-  box-shadow: 0 26px 56px rgba(26, 26, 46, 0.18);
+  border-color: rgba(167, 139, 250, 0.5);
+  background: rgba(124, 58, 237, 0.06);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.15), 0 24px 56px rgba(8, 8, 28, 0.4);
 }
 
 /* Cabeçalho visual generativo — gradiente único por categoria + símbolo decorativo */
@@ -1692,9 +1725,9 @@ section { position: relative; }
   opacity: 0.16;
   mix-blend-mode: overlay;
 }
-.blog-card-header.bastidores { background: linear-gradient(135deg, #1A1A2E 0%, #2D2440 50%, #4A3F6B 100%); }
-.blog-card-header.reflexoes  { background: linear-gradient(135deg, #0D1520 0%, #1A2535 50%, #2A3F55 100%); }
-.blog-card-header.universo   { background: linear-gradient(135deg, #1A0D20 0%, #2D1A35 50%, #4A2A5F 100%); }
+.blog-card-header.bastidores { background: linear-gradient(135deg, #08081C 0%, #1E1B4B 50%, #2D1760 100%); }
+.blog-card-header.reflexoes  { background: linear-gradient(135deg, #080820 0%, #1A1560 50%, #2D2A8A 100%); }
+.blog-card-header.universo   { background: linear-gradient(135deg, #100820 0%, #2D1060 50%, #5B21B6 100%); }
 
 .blog-card-header-simbolo {
   position: absolute;
@@ -1768,13 +1801,16 @@ section { position: relative; }
    ============================================================ */
 .secao-newsletter {
   background-color: var(--violeta);
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 20px,
-    rgba(201, 169, 110, 0.035) 20px,
-    rgba(201, 169, 110, 0.035) 21px
-  );
+  background-image:
+    radial-gradient(ellipse at 30% 30%, rgba(124, 58, 237, 0.4)  0%, transparent 60%),
+    radial-gradient(ellipse at 75% 70%, rgba(59, 130, 246, 0.18) 0%, transparent 55%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 22px,
+      rgba(167, 139, 250, 0.04) 22px,
+      rgba(167, 139, 250, 0.04) 23px
+    );
   color: var(--creme);
   padding: 110px 24px;
   text-align: center;
@@ -1860,7 +1896,7 @@ section { position: relative; }
 .rodape {
   background-color: var(--sombra-profunda);
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(74, 63, 107, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 96px 24px 36px;
@@ -2062,8 +2098,9 @@ section { position: relative; }
 .secao-spotify {
   background-color: var(--sombra);
   background-image:
-    radial-gradient(ellipse at 75% 20%, rgba(29, 185, 84, 0.07) 0%, transparent 52%),
-    radial-gradient(ellipse at 20% 80%, rgba(74, 63, 107, 0.38) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 20%, rgba(29, 185, 84, 0.09)  0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(124, 58, 237, 0.32)  0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.10)  0%, transparent 60%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 110px 24px 120px;
@@ -2261,8 +2298,9 @@ body { padding-bottom: 64px; }
 .secao-personagens {
   background-color: var(--sombra);
   background-image:
-    radial-gradient(ellipse at 15% 30%, rgba(74, 63, 107, 0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 75%, rgba(201, 169, 110, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 30%, rgba(124, 58, 237, 0.32) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 10%, rgba(45,  23, 96,  0.4)  0%, transparent 55%),
     var(--textura-ruido);
   color: var(--creme);
   padding: 100px 24px 130px;
@@ -2289,18 +2327,21 @@ body { padding-bottom: 64px; }
 }
 
 .card-personagem {
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  border-radius: 3px;
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 6px;
   overflow: hidden;
-  background: rgba(13, 13, 26, 0.55);
-  transition: border-color var(--transicao), box-shadow var(--transicao);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color var(--transicao), box-shadow var(--transicao), background var(--transicao);
   will-change: transform;
   transform-style: preserve-3d;
 }
 
 .card-personagem:hover {
-  border-color: var(--ouro);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+  border-color: rgba(167, 139, 250, 0.5);
+  background: rgba(124, 58, 237, 0.1);
+  box-shadow: 0 0 0 1px rgba(167,139,250,0.15), 0 20px 50px rgba(4,4,14,0.55);
 }
 
 .card-personagem-foto-wrap {
@@ -2364,7 +2405,9 @@ body { padding-bottom: 64px; }
    PÁGINA BLOG / POST
    ============================================================ */
 .secao-blog-listagem {
-  background: var(--branco-puro);
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(124, 58, 237, 0.07) 0%, transparent 50%),
+    linear-gradient(180deg, #F5F3FF 0%, var(--creme) 100%);
   padding: 100px 24px 140px;
 }
 
