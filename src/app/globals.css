@@ -1499,6 +1499,42 @@ section { position: relative; }
 
 .quiz-lead-confirmacao { text-align: center; }
 
+.botao-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  border: 1px solid #25D366;
+  border-radius: 2px;
+  padding: 16px 34px;
+  font-family: var(--fonte-ui);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.botao-whatsapp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+.botao-whatsapp:hover::after { transform: scale(2.4); }
+.botao-whatsapp:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+}
+
 .quiz-reiniciar {
   display: block;
   margin: 28px auto 0;

@@ -294,11 +294,7 @@ export default function ClientEffects() {
       cleanups.push(() => formulario.removeEventListener("submit", handler));
     };
 
-    const formNewsletter = document.querySelector('form[name="newsletter"]') as HTMLFormElement | null;
-    const confirmacaoNewsletter = document.querySelector(".confirmacao-envio");
-    if (formNewsletter) {
-      enviarFormularioNetlify(formNewsletter, confirmacaoNewsletter, "Obrigada por entrares no universo. Verifica o teu email em breve.");
-    }
+    // newsletter form removido — substituído por botão WhatsApp direto
 
     const formContacto = document.querySelector('form[name="contacto"]') as HTMLFormElement | null;
     const confirmacaoContacto = document.querySelector(".confirmacao-form");
@@ -306,11 +302,7 @@ export default function ClientEffects() {
       enviarFormularioNetlify(formContacto, confirmacaoContacto, "Mensagem enviada com sucesso. Obrigada por escreveres — responderei em breve.");
     }
 
-    const formQuizLead = document.querySelector('form[name="quiz-leitor"]') as HTMLFormElement | null;
-    const confirmacaoQuizLead = document.querySelector(".quiz-lead-confirmacao");
-    if (formQuizLead) {
-      enviarFormularioNetlify(formQuizLead, confirmacaoQuizLead, "Obrigada! Verifica o teu email para receberes o teu resultado completo.");
-    }
+    // quiz-leitor form removido — substituído por botão WhatsApp direto
 
     // ---------- Player personalizado da prévia em áudio (audiobook) ----------
     const audioPlayer = document.querySelector("[data-audio-player]");
