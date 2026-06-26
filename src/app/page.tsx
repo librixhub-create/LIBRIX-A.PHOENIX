@@ -53,25 +53,51 @@ export default function HomePage() {
 
       {/* ============ HERO ============ */}
       <header className="hero" id="topo">
-        <div className="hero-conteudo">
-          <div className="hero-linha" />
-          <span className="hero-titulo-mascara">
-            <h1 className="hero-titulo">ENTRE MUNDOS</h1>
-          </span>
-          <div className="hero-separador" />
-          <p className="hero-subtitulo">O Chamado</p>
-          <p className="hero-livro">Livro I</p>
-          <p
-            className="hero-frase"
-            data-texto="&ldquo;Antes da luz, houve a sombra. E tudo o que veio depois nasceu do encontro entre as duas.&rdquo;"
-          />
-          <div className="hero-botoes">
-            <div className="grupo-botoes">
-              <a href="#o-livro" className="botao botao-solido">Adquirir Agora</a>
-              <a href="#sinopse" className="botao botao-contorno">Ler a Sinopse</a>
+
+        {/* Orbs de fundo */}
+        <div className="hero-orbs" aria-hidden="true">
+          <span className="orb orb-1" />
+          <span className="orb orb-2" />
+          <span className="orb orb-3" />
+          <span className="orb orb-4" />
+        </div>
+
+        <div className="hero-split">
+          {/* Lado esquerdo — texto */}
+          <div className="hero-conteudo">
+            <div className="hero-linha" />
+            <span className="hero-titulo-mascara">
+              <h1 className="hero-titulo">ENTRE MUNDOS</h1>
+            </span>
+            <div className="hero-separador" />
+            <p className="hero-subtitulo">O Chamado</p>
+            <p className="hero-livro">Livro I</p>
+            <p
+              className="hero-frase"
+              data-texto="&ldquo;Antes da luz, houve a sombra. E tudo o que veio depois nasceu do encontro entre as duas.&rdquo;"
+            />
+            <div className="hero-botoes">
+              <div className="grupo-botoes">
+                <a href="#o-livro" className="botao botao-solido">Adquirir Agora</a>
+                <a href="#sinopse" className="botao botao-contorno">Ler a Sinopse</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Lado direito — livro 3D flutuante */}
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-book-glow" />
+            <div className="book-3d hero-book-3d">
+              <div className="book-spine"><span>ENTRE MUNDOS · O CHAMADO</span></div>
+              <div className="book-pages" />
+              <div className="book-front">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/livro/capa-frontal.webp" alt="" className="book-capa-img" />
+              </div>
             </div>
           </div>
         </div>
+
         <div className="scroll-indicador" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9" />

@@ -90,20 +90,61 @@ export default function ClientEffects() {
       elementosAnimados.forEach((el) => el.classList.add("visivel"));
     }
 
-    // ---------- Parallax suave no conteúdo do hero ----------
+    // ---------- Parallax duplo: texto (rápido) + livro (lento) ----------
     const heroConteudo = document.querySelector(".hero-conteudo") as HTMLElement | null;
-    if (heroConteudo && !prefereMenosMovimento) {
+    const heroVisual   = document.querySelector(".hero-visual")   as HTMLElement | null;
+    if ((heroConteudo || heroVisual) && !prefereMenosMovimento) {
       const aoScrollarParallax = () => {
         const scrollY = window.scrollY;
         const alturaJanela = window.innerHeight;
         if (scrollY < alturaJanela) {
-          heroConteudo.style.transform = `translateY(${scrollY * 0.25}px)`;
-          heroConteudo.style.opacity = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.7)));
+          if (heroConteudo) {
+            heroConteudo.style.transform = `translateY(${scrollY * 0.22}px)`;
+            heroConteudo.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.7)));
+          }
+          if (heroVisual) {
+            // O livro move-se mais devagar → cria sensação de profundidade
+            heroVisual.style.transform = `translateY(${scrollY * 0.1}px)`;
+            heroVisual.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.85)));
+          }
         }
       };
       aoScrollarParallax();
       window.addEventListener("scroll", aoScrollarParallax, { passive: true });
       cleanups.push(() => window.removeEventListener("scroll", aoScrollarParallax));
+    }
+
+    // ---------- Tilt 3D nos cards ao mover o rato ----------
+    if (!prefereMenosMovimento && window.matchMedia("(pointer: fine)").matches) {
+      const cardsParaTilt = Array.from(
+        document.querySelectorAll(".card-post, .card-personagem")
+      ) as HTMLElement[];
+
+      const tiltHandlers = cardsParaTilt.map((card) => {
+        const onMove = (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width  - 0.5;
+          const y = (e.clientY - rect.top)  / rect.height - 0.5;
+          card.style.transition = "box-shadow 0.15s ease";
+          card.style.transform  = `perspective(700px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg) translateZ(14px)`;
+          card.style.boxShadow  = `${x * -24}px ${y * -24}px 48px rgba(13,13,26,0.22), 0 28px 60px rgba(26,26,46,0.2)`;
+        };
+        const onLeave = () => {
+          card.style.transition = "transform 0.65s cubic-bezier(0.16,1,0.3,1), box-shadow 0.65s ease, border-color 0.35s ease";
+          card.style.transform  = "";
+          card.style.boxShadow  = "";
+        };
+        card.addEventListener("mousemove", onMove as EventListener);
+        card.addEventListener("mouseleave", onLeave);
+        return { card, onMove: onMove as EventListener, onLeave };
+      });
+
+      cleanups.push(() =>
+        tiltHandlers.forEach(({ card, onMove, onLeave }) => {
+          card.removeEventListener("mousemove", onMove);
+          card.removeEventListener("mouseleave", onLeave);
+        })
+      );
     }
 
     // ---------- Cursor personalizado (apenas em dispositivos com rato) ----------
