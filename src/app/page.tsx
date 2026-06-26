@@ -217,7 +217,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Divisor de="var(--violeta)" para="var(--creme)" />
+      <Divisor de="var(--violeta)" para="var(--sombra)" />
+
+      {/* ============ SPOTIFY ============ */}
+      <section className="secao-spotify" id="spotify">
+        <div className="container">
+          <p className="titulo-secao surge-scroll">No Spotify</p>
+          <div className="linha-ouro fundo-escuro surge-scroll" />
+          <p className="spotify-secao-intro surge-scroll">
+            Mergulha na atmosfera de <em>Entre Mundos</em> com a música da autora — disponível agora no Spotify.
+          </p>
+          <div className="spotify-embed-secao surge-scroll">
+            <iframe
+              src="https://open.spotify.com/embed/artist/5aobzQ38sH1bb1FgakfUU7?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              style={{ border: "none" }}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="A. Phoenix no Spotify"
+            />
+          </div>
+          <div className="botao-centro surge-scroll">
+            <a
+              href="https://open.spotify.com/artist/5aobzQ38sH1bb1FgakfUU7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="botao botao-spotify"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18} aria-hidden="true">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.305a.748.748 0 0 1-1.03.25c-2.818-1.723-6.365-2.112-10.54-1.157a.748.748 0 0 1-.346-1.446c4.566-1.044 8.481-.595 11.64 1.338a.748.748 0 0 1 .276.015zM18.99 14.03a.936.936 0 0 1-1.287.308c-3.226-1.982-8.14-2.557-11.953-1.4a.937.937 0 0 1-.539-1.787c4.355-1.322 9.763-.682 13.47 1.592a.934.934 0 0 1 .31 1.287zm.127-3.403C16.27 8.424 9.986 8.22 6.397 9.33a1.123 1.123 0 0 1-.696-2.137c4.112-1.34 10.944-1.081 15.258 1.558a1.123 1.123 0 0 1-1.842 1.876z" />
+              </svg>
+              Seguir no Spotify
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Divisor de="var(--sombra)" para="var(--creme)" />
 
       {/* ============ VÍDEO ============ */}
       <section className="secao-video">

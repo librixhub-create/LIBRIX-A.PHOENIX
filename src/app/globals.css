@@ -1933,6 +1933,205 @@ section { position: relative; }
 }
 
 /* ============================================================
+   SECÇÃO — SPOTIFY (homepage embed)
+   ============================================================ */
+.secao-spotify {
+  background-color: var(--sombra);
+  background-image:
+    radial-gradient(ellipse at 75% 20%, rgba(29, 185, 84, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse at 20% 80%, rgba(74, 63, 107, 0.38) 0%, transparent 55%),
+    var(--textura-ruido);
+  color: var(--creme);
+  padding: 110px 24px 120px;
+  text-align: center;
+}
+
+.spotify-secao-intro {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--creme);
+  opacity: 0.8;
+  max-width: 540px;
+  margin: 0 auto 50px;
+  line-height: 1.75;
+}
+
+.spotify-embed-secao {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(29, 185, 84, 0.2);
+}
+
+.botao-spotify {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1DB954;
+  color: #000;
+  border: 1px solid #1DB954;
+  border-radius: 2px;
+  padding: 16px 34px;
+  font-family: var(--fonte-ui);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.botao-spotify::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+.botao-spotify:hover::after { transform: scale(2.4); }
+.botao-spotify:hover { background: #1ed760; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(29, 185, 84, 0.35); }
+
+@media (max-width: 760px) {
+  .secao-spotify { padding-top: 80px; padding-bottom: 90px; }
+}
+
+/* ============================================================
+   BARRA SPOTIFY STICKY (todas as páginas)
+   ============================================================ */
+.spotify-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: rgba(10, 10, 20, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(29, 185, 84, 0.3);
+  box-shadow: 0 -6px 32px rgba(0, 0, 0, 0.55);
+  transition: transform 0.35s ease;
+}
+
+.spotify-bar-embed {
+  border-bottom: 1px solid rgba(29, 185, 84, 0.12);
+  overflow: hidden;
+}
+
+.spotify-bar-controlo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px;
+  max-width: var(--max-largura);
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.spotify-bar-artista {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+  transition: opacity 0.3s ease;
+}
+.spotify-bar-artista:hover { opacity: 0.8; }
+
+.spotify-icone {
+  width: 32px;
+  height: 32px;
+  color: #1DB954;
+  flex-shrink: 0;
+}
+
+.spotify-bar-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.spotify-bar-nome {
+  font-family: var(--fonte-ui);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--creme);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-bar-sub {
+  font-family: var(--fonte-ui);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1DB954;
+}
+
+.spotify-bar-acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.spotify-bar-btn-externo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--fonte-ui);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1DB954;
+  border: 1px solid rgba(29, 185, 84, 0.45);
+  border-radius: 2px;
+  padding: 9px 16px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.spotify-bar-btn-externo svg { width: 13px; height: 13px; }
+.spotify-bar-btn-externo:hover { background: #1DB954; color: #000; border-color: #1DB954; }
+
+.spotify-bar-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--fonte-ui);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  background: none;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  border-radius: 2px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.spotify-bar-toggle svg { width: 13px; height: 13px; }
+.spotify-bar-toggle:hover { background: var(--ouro); color: var(--sombra); border-color: var(--ouro); }
+
+/* Espaço no fundo do body para a barra não cobrir conteúdo */
+body { padding-bottom: 64px; }
+
+@media (max-width: 520px) {
+  .spotify-bar-controlo { padding: 10px 16px; gap: 12px; }
+  .spotify-bar-btn-externo span { display: none; }
+  .spotify-bar-toggle span { display: none; }
+  .spotify-bar-btn-externo, .spotify-bar-toggle { padding: 9px 12px; }
+}
+
+/* ============================================================
    SECÇÃO — PERSONAGENS DO UNIVERSO (blog page)
    ============================================================ */
 .secao-personagens {
