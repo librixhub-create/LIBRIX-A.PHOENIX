@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa dos Mundos — Entre Mundos: O Chamado | A. Phoenix</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#f0f0f0;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:3rem 1rem}
+.wrap{max-width:680px;width:100%}
+.map-title{text-align:center;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#555;margin-bottom:6px}
+.map-subtitle{text-align:center;font-size:26px;font-weight:500;color:#f0f0f0;margin-bottom:2.5rem}
+.divider{width:40px;height:1px;background:#222;margin:0 auto 2.5rem}
+.worlds{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:2rem}
+.world-card{background:#111;border:1px solid #222;border-radius:14px;padding:1.25rem 1rem;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.world-card:hover,.world-card.active{background:#161616;border-color:#333}
+.world-accent{position:absolute;top:0;left:0;right:0;height:3px;opacity:.35;transition:opacity .2s}
+.world-card.active .world-accent{opacity:1}
+.world-icon{font-size:26px;margin-bottom:10px;display:block}
+.world-name{font-size:15px;font-weight:500;color:#f0f0f0;margin-bottom:3px}
+.world-era{font-size:11px;color:#555;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.world-preview{font-size:12px;color:#888;line-height:1.5}
+.connector{display:flex;align-items:center;gap:8px;margin:0 0 2rem}
+.connector-line{flex:1;height:1px;background:#1a1a1a}
+.connector-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#444;white-space:nowrap;padding:4px 12px;border:1px solid #1e1e1e;border-radius:20px}
+.detail{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:1.5rem;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.detail-header{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.detail-icon{font-size:32px}
+.detail-name{font-size:20px;font-weight:500;color:#f0f0f0}
+.detail-era{font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.08em}
+.detail-desc{font-size:15px;color:#999;line-height:1.75;margin-bottom:1.25rem}
+.section-label{font-size:11px;color:#444;text-transform:uppercase;letter-spacing:.1em;margin:1rem 0 8px}
+.char-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.5rem}
+.char-pill{font-size:13px;color:#888;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:20px;padding:4px 14px}
+.char-pill.key{color:#e0e0e0;border-color:#333;font-weight:500}
+.place-item{font-size:14px;color:#888;padding:7px 0;border-bottom:1px solid #1a1a1a}
+.place-item:last-child{border-bottom:none}
+.place-name{font-weight:500;color:#ddd}
+.place-tag{font-size:10px;color:#555;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+.footer{text-align:center;margin-top:2rem;font-size:12px;color:#333}
+@media(max-width:480px){.worlds{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="map-title">A. Phoenix</p>
+  <p class="map-subtitle">Entre Mundos: O Chamado</p>
+  <div class="divider"></div>
+  <div class="worlds">
+    <div class="world-card active" onclick="select(0)">
+      <div class="world-accent" style="background:#7F77DD"></div>
+      <span class="world-icon">🏙️</span>
+      <div class="world-name">Londres + Vilarejo do Véu</div>
+      <div class="world-era">Presente · Séc. XIX</div>
+      <div class="world-preview">Gabrielle, Ethan, Soraya, Esmé, Yasmina...</div>
+    </div>
+    <div class="world-card" onclick="select(1)">
+      <div class="world-accent" style="background:#D4537E"></div>
+      <span class="world-icon">🗼</span>
+      <div class="world-name">Paris</div>
+      <div class="world-era">Passado · Flashback</div>
+      <div class="world-preview">Gabrielle, Loui, Ethan, Asha, Bernard...</div>
+    </div>
+    <div class="world-card" onclick="select(2)">
+      <div class="world-accent" style="background:#BA7517"></div>
+      <span class="world-icon">🏜️</span>
+      <div class="world-name">Pérsia Antiga</div>
+      <div class="world-era">Além da Fenda</div>
+      <div class="world-preview">Arael, Amirah</div>
+    </div>
+    <div class="world-card" onclick="select(3)">
+      <div class="world-accent" style="background:#1D9E75"></div>
+      <span class="world-icon">🕌</span>
+      <div class="world-name">Índia</div>
+      <div class="world-era">O Templo · À Distância</div>
+      <div class="world-preview">Arun — O Primogênito</div>
+    </div>
+  </div>
+  <div class="connector">
+    <div class="connector-line"></div>
+    <div class="connector-label">A Fenda separa os mundos</div>
+    <div class="connector-line"></div>
+  </div>
+  <div id="detail"></div>
+  <p class="footer">Entre Mundos: O Chamado — disponível em 10 de julho 🔥</p>
+</div>
+<script>
+const worlds=[
+  {
+    icon:"🏙️",name:"Londres + Vilarejo do Véu",era:"Presente · Século XIX",
+    desc:"A cidade que devora quem chega. Entre a névoa e as pedras centenárias, a Fenda começa a se abrir. Às margens da cidade, fora dos mapas oficiais, o Vilarejo do Véu guarda segredos em tendas e fogueiras — com o seu próprio tempo e os seus próprios ritmos.",
+    chars:[
+      {name:"Gabrielle Dubois",key:true},{name:"Ethan Smith",key:true},
+      {name:"Asha",key:true},{name:"Soraya",key:true},
+      {name:"Esmé (nova líder)",key:true},{name:"Yasmina †",key:false},
+      {name:"Kabir",key:false},{name:"Surya",key:false},
+      {name:"Lady Susan Smith",key:false},{name:"Edward Smith",key:false},
+      {name:"Angeli Dubois",key:false},{name:"Bernard Dubois",key:false},
+      {name:"Farid",key:false},
+    ],
+    places:[
+      {name:"Mansão dos Smith",tag:"cidade",desc:"Palco de segredos e jogos de poder"},
+      {name:"Casa dos Dubois",tag:"cidade",desc:"Onde o chamado acorda"},
+      {name:"Vilarejo do Véu",tag:"vilarejo",desc:"Coração cigano onde os Guardiões operam"},
+      {name:"A Tenda de Soraya",tag:"vilarejo",desc:"Onde Gabrielle aprende a sentir antes de ver"},
+      {name:"O Porto",tag:"cidade",desc:"Entrada no novo mundo — e na história"},
+    ]
+  },
+  {
+    icon:"🗼",name:"Paris",era:"Passado · Flashbacks",
+    desc:"A cidade de antes. Paris guarda os anos em que Gabrielle ainda não sabia quem era — mas já sentia. Onde o Loui tocou pela última vez, onde Bernard conheceu Soraya, e onde tudo que acontece em Londres foi semeado.",
+    chars:[
+      {name:"Gabrielle",key:true},{name:"Loui",key:true},
+      {name:"Ethan",key:false},{name:"Asha",key:false},
+      {name:"Angeli",key:false},{name:"Bernard",key:false},{name:"Soraya",key:false},
+    ],
+    places:[
+      {name:"O Conservatório",tag:"",desc:"Onde Loui tocava sozinho à meia-noite"},
+      {name:"Salões e Saraus",tag:"",desc:"Onde Angeli reinava — e observava"},
+      {name:"O Rio Sena",tag:"",desc:"Onde uma história terminou antes de recomeçar"},
+      {name:"A Rua de Soraya",tag:"",desc:"Onde Bernard a encontrou pela primeira vez"},
+    ]
+  },
+  {
+    icon:"🏜️",name:"Pérsia Antiga",era:"Além da Fenda",
+    desc:"O mundo de onde veio a maldição — e o amor que a criou. Existe além do Véu, num tempo que não obedece ao tempo. É aqui que Amirah lançou o selo e Arael foi aprisionado — e é para cá que Gabrielle é arrastada pela Sombra.",
+    chars:[
+      {name:"Arael",key:true},{name:"Amirah",key:true},
+    ],
+    places:[
+      {name:"O Deserto",tag:"",desc:"Onde o selo foi lançado sob fogo"},
+      {name:"O Templo de Amirah",tag:"",desc:"Origem da maldição ancestral"},
+      {name:"A Fenda",tag:"",desc:"O portal entre este mundo e todos os outros"},
+    ]
+  },
+  {
+    icon:"🕌",name:"Índia",era:"O Templo · À Distância",
+    desc:"Arun está num templo na Índia, de olhos fechados, em contacto com algo que não está naquele espaço físico — mas que é tão real quanto qualquer coisa que está. Quando a Fenda abriu, as lanternas do vilarejo balançaram sem vento: ele estava chegando.",
+    chars:[
+      {name:"Arun",key:true},
+    ],
+    places:[
+      {name:"O Templo",tag:"",desc:"Onde o Primogênito medita e sente o que acontece além"},
+      {name:"A Aldeia",tag:"",desc:"De onde parte quando o chamado chega"},
+    ]
+  }
+];
+function select(i){
+  document.querySelectorAll('.world-card').forEach((c,j)=>{
+    c.classList.toggle('active',i===j);
+    c.querySelector('.world-accent').style.opacity=i===j?'1':'.35';
+  });
+  const w=worlds[i];
+  document.getElementById('detail').innerHTML=`
+    <div class="detail">
+      <div class="detail-header">
+        <span class="detail-icon">${w.icon}</span>
+        <div><div class="detail-name">${w.name}</div><div class="detail-era">${w.era}</div></div>
+      </div>
+      <p class="detail-desc">${w.desc}</p>
+      <div class="section-label">Personagens</div>
+      <div class="char-pills">${w.chars.map(c=>`<span class="char-pill${c.key?' key':''}">${c.name}</span>`).join('')}</div>
+      <div class="section-label">Lugares</div>
+      ${w.places.map(p=>`<div class="place-item"><span class="place-name">${p.name}</span>${p.tag?`<span class="place-tag">${p.tag}</span>`:''} — ${p.desc}</div>`).join('')}
+    </div>`;
+}
+select(0);
+</script>
+</body>
+</html>

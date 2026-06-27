@@ -1551,6 +1551,121 @@ section { position: relative; }
 .quiz-reiniciar:hover { color: var(--ouro); }
 
 /* ============================================================
+   SECÇÃO — NOVIDADES EXCLUSIVAS
+   ============================================================ */
+.secao-novidades {
+  background-color: var(--sombra);
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 75%, rgba(59, 130, 246, 0.16) 0%, transparent 52%),
+    radial-gradient(ellipse at 55% 45%, rgba(45, 23, 96, 0.35)  0%, transparent 60%),
+    var(--textura-ruido);
+  padding: 130px 24px;
+}
+
+.novidades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.novidade-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 30px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(167, 139, 250, 0.16);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.35s ease,
+    background   0.35s ease,
+    transform    0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow   0.45s ease;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+.novidade-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at 30% 20%, rgba(167, 139, 250, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.novidade-card:hover::before { opacity: 1; }
+.novidade-card:hover {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(124, 58, 237, 0.1);
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.12),
+    0 24px 56px rgba(4, 4, 14, 0.6),
+    0 0 40px rgba(124, 58, 237, 0.12);
+}
+
+.novidade-icon {
+  font-size: 40px;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.35));
+}
+
+.novidade-tag {
+  font-family: var(--fonte-ui);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--violeta-claro);
+  padding: 4px 12px;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 20px;
+  width: fit-content;
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.novidade-titulo {
+  font-family: var(--fonte-ui);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--creme);
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.novidade-desc {
+  font-family: var(--fonte-corpo);
+  font-size: 15px;
+  color: var(--cinza-suave);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.novidade-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fonte-ui);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--violeta-claro);
+  margin-top: 6px;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+.novidade-card:hover .novidade-cta {
+  gap: 12px;
+  color: var(--branco-puro);
+}
+
+/* ============================================================
    SECÇÃO — SOBRE A AUTORA (teaser + página completa)
    ============================================================ */
 .secao-autora {
@@ -2715,6 +2830,12 @@ body { padding-bottom: 64px; }
    RESPONSIVO
    ============================================================ */
 @media (max-width: 920px) {
+  .novidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
   /* Hero split: empilha em tablet */
   .hero-split {
     grid-template-columns: 1fr;
@@ -2780,9 +2901,14 @@ body { padding-bottom: 64px; }
 
   .secao-livro, .secao-sinopse, .secao-autora, .secao-blog,
   .secao-bio, .secao-contacto, .secao-post, .secao-blog-listagem, .secao-stats,
-  .secao-audio, .secao-quiz {
+  .secao-audio, .secao-quiz, .secao-novidades {
     padding-top: 90px;
     padding-bottom: 90px;
+  }
+
+  .novidades-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .frase-impacto, .secao-newsletter { padding: 90px 24px; }

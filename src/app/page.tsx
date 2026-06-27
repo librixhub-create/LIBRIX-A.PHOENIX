@@ -488,7 +488,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Divisor de="var(--violeta)" para="var(--creme)" />
+      <Divisor de="var(--violeta)" para="var(--sombra)" />
+
+      {/* ============ NOVIDADES EXCLUSIVAS ============ */}
+      <section className="secao-novidades" id="experiencias">
+        <div className="container">
+          <p className="titulo-secao surge-scroll">Novidades Exclusivas</p>
+          <p className="sub surge-scroll" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 56px", color: "var(--cinza-suave)" }}>
+            Três experiências interativas criadas especialmente para os leitores de <em>Entre Mundos</em>. Explora, joga e decifra.
+          </p>
+
+          <div className="novidades-grid">
+            {/* Mapa dos Mundos */}
+            <a
+              href="/experiencias/mapa.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="novidade-card surge-scroll"
+              aria-label="Abrir Mapa dos Mundos"
+            >
+              <div className="novidade-icon" aria-hidden="true">🗺️</div>
+              <div className="novidade-tag">Exploração</div>
+              <h3 className="novidade-titulo">Mapa dos Mundos</h3>
+              <p className="novidade-desc">
+                Percorre os quatro mundos do livro — Londres, Paris, Pérsia Antiga e Índia. Descobre os personagens, os lugares e os segredos de cada cenário.
+              </p>
+              <span className="novidade-cta">
+                Explorar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+
+            {/* Jogo da Memória */}
+            <a
+              href="/experiencias/jogo-memoria.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="novidade-card surge-scroll"
+              aria-label="Abrir Jogo da Memória"
+            >
+              <div className="novidade-icon" aria-hidden="true">🃏</div>
+              <div className="novidade-tag">Jogo</div>
+              <h3 className="novidade-titulo">Memória do Véu</h3>
+              <p className="novidade-desc">
+                Encontra os pares — cada símbolo esconde um personagem. Quantas jogadas precisas para desvendar todos os segredos do Véu?
+              </p>
+              <span className="novidade-cta">
+                Jogar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+
+            {/* Decifra o Pergaminho */}
+            <a
+              href="/experiencias/jogo-pergaminho.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="novidade-card surge-scroll"
+              aria-label="Abrir Decifra o Pergaminho"
+            >
+              <div className="novidade-icon" aria-hidden="true">📜</div>
+              <div className="novidade-tag">Desafio</div>
+              <h3 className="novidade-titulo">Decifra o Pergaminho</h3>
+              <p className="novidade-desc">
+                Os símbolos do Véu têm um significado. Consegues identificar a que personagem ou lugar pertence cada símbolo ancestral?
+              </p>
+              <span className="novidade-cta">
+                Decifrar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Divisor de="var(--sombra)" para="var(--creme)" />
 
       {/* ============ SOBRE A AUTORA (teaser) ============ */}
       <section className="secao-autora" id="sobre-teaser">
