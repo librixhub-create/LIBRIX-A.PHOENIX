@@ -210,12 +210,11 @@ export default function HomePage() {
                   </div>
                   <div className="audio-tempos">
                     <span data-audio-atual>0:00</span>
-                    <span data-audio-total>0:36</span>
+                    <span data-audio-total>0:49</span>
                   </div>
                 </div>
 
                 <audio data-audio-elemento preload="metadata">
-                  <source src="/assets/audio/previa-entre-mundos.mp3" type="audio/mpeg" />
                   <source src="/assets/audio/previa-entre-mundos.wav" type="audio/wav" />
                   O teu navegador não suporta áudio incorporado.
                 </audio>
