@@ -1064,6 +1064,130 @@ section { position: relative; }
   border: 1px solid rgba(201, 169, 110, 0.3);
   background: var(--sombra);
 }
+.video-copyright {
+  text-align: center;
+  margin-top: 12px;
+  font-family: var(--fonte-ui);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   MODAL — AVISO DATA DE LANÇAMENTO
+   ============================================================ */
+.modal-adquirir {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-adquirir[hidden] { display: none; }
+
+.modal-adquirir-fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 4, 14, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-adquirir-caixa {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  width: 100%;
+  background: rgba(30, 27, 75, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 20px;
+  padding: 48px 40px 40px;
+  text-align: center;
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.1),
+    0 32px 80px rgba(4, 4, 14, 0.7),
+    0 0 60px rgba(124, 58, 237, 0.15);
+  animation: modalEntrar 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalEntrar {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.modal-adquirir-icon {
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 14px rgba(167, 139, 250, 0.4));
+}
+
+.modal-adquirir-data {
+  font-family: var(--fonte-ui);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--violeta-claro);
+  margin-bottom: 10px;
+}
+
+.modal-adquirir-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--creme);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.modal-adquirir-texto {
+  font-family: var(--fonte-corpo);
+  font-size: 16px;
+  color: var(--cinza-suave);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.modal-adquirir-texto strong { color: var(--creme); }
+
+.modal-adquirir-subtexto {
+  font-family: var(--fonte-corpo);
+  font-size: 14px;
+  color: var(--texto-suave);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.modal-adquirir-botoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.modal-adquirir-x {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: var(--texto-suave);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+  line-height: 1;
+}
+.modal-adquirir-x:hover {
+  color: var(--creme);
+  background: rgba(255, 255, 255, 0.08);
+}
 
 /* ============================================================
    SECÇÃO — SINOPSE

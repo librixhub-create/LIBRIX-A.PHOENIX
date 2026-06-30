@@ -78,7 +78,7 @@ export default function HomePage() {
             />
             <div className="hero-botoes">
               <div className="grupo-botoes">
-                <a href="#o-livro" className="botao botao-solido">Adquirir Agora</a>
+                <button type="button" className="botao botao-solido" data-adquirir>Adquirir Agora</button>
                 <a href="#sinopse" className="botao botao-contorno">Ler a Sinopse</a>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function HomePage() {
             </ul>
             <p className="preco">€14,90 <span>/ edição digital e física</span></p>
             <div className="cta-livro">
-              <a href="/contato" className="botao botao-escuro">Adquirir o Livro</a>
+              <button type="button" className="botao botao-escuro" data-adquirir>Adquirir o Livro</button>
             </div>
             <p className="texto-pequeno">Disponível em formato digital e físico</p>
           </div>
@@ -292,6 +292,7 @@ export default function HomePage() {
               <source src="/assets/video/reel-entre-mundos.mp4" type="video/mp4" />
               O teu navegador não suporta vídeo incorporado.
             </video>
+            <p className="video-copyright">© Helyd.dreambooks</p>
           </div>
         </div>
       </section>
@@ -310,7 +311,7 @@ export default function HomePage() {
             <p>Este é o início de uma saga onde nada é o que parece, e onde cada escolha pode salvar ou destruir tudo o que existe.</p>
           </div>
           <div className="sinopse-cta surge-scroll">
-            <a href="#o-livro" className="botao botao-solido">Adquirir Agora</a>
+            <button type="button" className="botao botao-solido" data-adquirir>Adquirir Agora</button>
           </div>
         </div>
       </section>
@@ -431,7 +432,7 @@ export default function HomePage() {
                 <h3>Caminhante Entre Mundos</h3>
                 <p>Como Gabrielle, és movido(a) pela curiosidade e pela necessidade de saber a verdade — mesmo quando ela exige atravessar fendas que outros preferem ignorar. O desconhecido não te assusta: chama-te. Em <em>Entre Mundos: O Chamado</em>, vais reconhecer-te em cada porta que ela escolhe abrir.</p>
                 <div className="quiz-resultado-cta">
-                  <a href="#o-livro" className="botao botao-solido">Conhecer o Livro</a>
+                  <button type="button" className="botao botao-solido" data-adquirir>Conhecer o Livro</button>
                 </div>
               </div>
 
@@ -441,7 +442,7 @@ export default function HomePage() {
                 <h3>Guardião(ã) da Luz</h3>
                 <p>Há em ti uma força silenciosa que protege antes de pensar em si própria. Em <em>Entre Mundos</em>, és como aqueles que escolhem ficar e lutar pela luz mesmo quando a escuridão parece mais forte. Vais identificar-te com as personagens prontas a sacrificar tudo por quem amam.</p>
                 <div className="quiz-resultado-cta">
-                  <a href="#o-livro" className="botao botao-solido">Conhecer o Livro</a>
+                  <button type="button" className="botao botao-solido" data-adquirir>Conhecer o Livro</button>
                 </div>
               </div>
 
@@ -451,7 +452,7 @@ export default function HomePage() {
                 <h3>Filho(a) da Sombra</h3>
                 <p>A escuridão não te assusta — faz parte de ti. Compreendes o que muitos preferem não ver, e isso torna-te mais forte, não mais frágil. Em <em>Entre Mundos</em>, vais sentir uma ligação especial com as personagens que carregam segredos... e com a sombra que, afinal, também pode escolher um lado.</p>
                 <div className="quiz-resultado-cta">
-                  <a href="#o-livro" className="botao botao-solido">Conhecer o Livro</a>
+                  <button type="button" className="botao botao-solido" data-adquirir>Conhecer o Livro</button>
                 </div>
               </div>
 
@@ -461,7 +462,7 @@ export default function HomePage() {
                 <h3>Coração Indomável</h3>
                 <p>Para ti, o que move o mundo não é o poder nem o destino — é o amor que se recusa a desistir. Em <em>Entre Mundos</em>, vais reconhecer-te nos laços que atravessam tempo, mundos e medos, e nas escolhas feitas não por dever, mas por quem se ama.</p>
                 <div className="quiz-resultado-cta">
-                  <a href="#o-livro" className="botao botao-solido">Conhecer o Livro</a>
+                  <button type="button" className="botao botao-solido" data-adquirir>Conhecer o Livro</button>
                 </div>
               </div>
 
@@ -671,6 +672,27 @@ export default function HomePage() {
       <Divisor de="var(--violeta)" para="var(--sombra-profunda)" />
 
       <Footer />
+
+      {/* ============ MODAL AVISO DATA DE LANÇAMENTO ============ */}
+      <div id="modal-adquirir" className="modal-adquirir" role="dialog" aria-modal="true" aria-labelledby="modal-adquirir-titulo" hidden>
+        <div className="modal-adquirir-caixa">
+          <div className="modal-adquirir-icon" aria-hidden="true">📅</div>
+          <p className="modal-adquirir-data">10 / 07 / 2026</p>
+          <h2 id="modal-adquirir-titulo" className="modal-adquirir-titulo">Em breve na Amazon</h2>
+          <p className="modal-adquirir-texto">
+            <strong>Entre Mundos: O Chamado</strong> estará disponível para compra no dia <strong>10 de julho de 2026</strong> na Amazon. Aguarda essa data para adquirires o teu exemplar.
+          </p>
+          <p className="modal-adquirir-subtexto">
+            Enquanto isso, explora o blog do site e acompanha todas as novidades e atualizações — há muito para descobrir antes do lançamento!
+          </p>
+          <div className="modal-adquirir-botoes">
+            <a href="/blog" className="botao botao-solido">Ver o Blog</a>
+            <button type="button" className="botao botao-contorno" id="modal-adquirir-fechar">Fechar</button>
+          </div>
+          <button type="button" className="modal-adquirir-x" id="modal-adquirir-x" aria-label="Fechar">✕</button>
+        </div>
+        <div className="modal-adquirir-fundo" id="modal-adquirir-fundo" />
+      </div>
     </>
   );
 }

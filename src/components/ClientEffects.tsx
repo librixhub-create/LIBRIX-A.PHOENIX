@@ -448,6 +448,26 @@ export default function ClientEffects() {
       });
     }
 
+    // ---------- Modal aviso data de lançamento ----------
+    const modal      = document.getElementById("modal-adquirir") as HTMLElement | null;
+    const fundoModal = document.getElementById("modal-adquirir-fundo") as HTMLElement | null;
+    const btnFechar  = document.getElementById("modal-adquirir-fechar") as HTMLElement | null;
+    const btnX       = document.getElementById("modal-adquirir-x") as HTMLElement | null;
+
+    const abrirModal = (e: Event) => { e.preventDefault(); if (modal) modal.hidden = false; };
+    const fecharModal = () => { if (modal) modal.hidden = true; };
+
+    document.querySelectorAll<HTMLElement>("[data-adquirir]").forEach((btn) => {
+      btn.addEventListener("click", abrirModal);
+      cleanups.push(() => btn.removeEventListener("click", abrirModal));
+    });
+    if (btnFechar)  { btnFechar.addEventListener("click", fecharModal);  cleanups.push(() => btnFechar.removeEventListener("click", fecharModal)); }
+    if (btnX)       { btnX.addEventListener("click", fecharModal);       cleanups.push(() => btnX.removeEventListener("click", fecharModal)); }
+    if (fundoModal) { fundoModal.addEventListener("click", fecharModal); cleanups.push(() => fundoModal.removeEventListener("click", fecharModal)); }
+    const fecharEsc = (e: KeyboardEvent) => { if (e.key === "Escape") fecharModal(); };
+    document.addEventListener("keydown", fecharEsc);
+    cleanups.push(() => document.removeEventListener("keydown", fecharEsc));
+
     return () => cleanups.forEach((fn) => fn());
   }, []);
 
