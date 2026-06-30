@@ -2360,6 +2360,249 @@ section { position: relative; }
 }
 
 /* ============================================================
+   PÁGINA PERSONAGENS
+   ============================================================ */
+
+/* Hero */
+.hero-personagens {
+  background-image:
+    radial-gradient(ellipse at 25% 20%, rgba(124, 58, 237, 0.38) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 80%, rgba(59, 130, 246, 0.2)  0%, transparent 52%),
+    radial-gradient(ellipse at 50% 50%, rgba(45, 23, 96, 0.45)   0%, transparent 65%),
+    var(--textura-ruido);
+}
+.hero-interior-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(40px, 6vw, 64px);
+  letter-spacing: 0.12em;
+  color: var(--creme);
+  margin: 8px 0 16px;
+}
+.hero-interior-sub {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cinza-suave);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.hero-personagens-ornamento {
+  font-size: 18px;
+  color: var(--violeta-claro);
+  letter-spacing: 0.3em;
+  opacity: 0.55;
+}
+
+/* Secção protagonistas */
+.secao-personagens-pagina--destaques {
+  background-color: var(--sombra);
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 75%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    var(--textura-ruido);
+  color: var(--creme);
+  padding: 100px 24px 120px;
+  text-align: center;
+}
+
+.personagens-destaques-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: var(--max-largura);
+  margin: 0 auto;
+}
+
+.card-personagem-pagina {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    border-color 0.35s ease,
+    box-shadow   0.35s ease,
+    background   0.35s ease,
+    transform    0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  will-change: transform;
+}
+.card-personagem-pagina:hover {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(124, 58, 237, 0.09);
+  box-shadow: 0 0 0 1px rgba(167,139,250,0.12), 0 28px 60px rgba(4,4,14,0.6);
+  transform: translateY(-4px);
+}
+
+.card-personagem-pagina-foto-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.card-personagem-pagina-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: sepia(0.15) brightness(0.85);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.card-personagem-pagina:hover .card-personagem-pagina-foto {
+  filter: sepia(0) brightness(1);
+  transform: scale(1.04);
+}
+.card-personagem-pagina-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,28,0.85) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.card-personagem-pagina-corpo {
+  padding: 24px 26px 28px;
+  border-top: 1px solid rgba(167, 139, 250, 0.14);
+}
+.card-personagem-pagina-mundo {
+  font-family: var(--fonte-ui);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--violeta-claro);
+  display: block;
+  margin-bottom: 10px;
+}
+.card-personagem-pagina-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--creme);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+.card-personagem-pagina-papel {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ouro);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+.card-personagem-pagina-desc {
+  font-family: var(--fonte-corpo);
+  font-size: 15px;
+  color: var(--cinza-suave);
+  line-height: 1.75;
+}
+
+/* Secção secundários */
+.secao-personagens-pagina--secundarios {
+  background: linear-gradient(180deg, #F5F3FF 0%, var(--creme) 100%);
+  color: var(--sombra);
+  padding: 100px 24px 120px;
+  text-align: center;
+}
+
+.personagens-secundarios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: var(--max-largura);
+  margin: 0 auto;
+}
+
+.card-personagem-sec {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+.card-personagem-sec:hover {
+  border-color: rgba(124, 58, 237, 0.35);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.12);
+  transform: translateY(-3px);
+}
+.card-personagem-sec-foto-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.card-personagem-sec-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: sepia(0.1) brightness(0.9);
+  transition: filter 0.35s ease, transform 0.45s ease;
+}
+.card-personagem-sec:hover .card-personagem-sec-foto {
+  filter: sepia(0) brightness(1);
+  transform: scale(1.04);
+}
+.card-personagem-sec-corpo {
+  padding: 18px 20px 22px;
+  border-top: 1px solid rgba(124, 58, 237, 0.1);
+}
+.card-personagem-sec-mundo {
+  font-family: var(--fonte-ui);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--roxo-brilho);
+  display: block;
+  margin-bottom: 7px;
+}
+.card-personagem-sec-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--sombra);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.card-personagem-sec-papel {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--roxo-vivo);
+  margin-bottom: 12px;
+}
+.card-personagem-sec-desc {
+  font-family: var(--fonte-corpo);
+  font-size: 13px;
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+/* CTA final */
+.secao-personagens-cta {
+  background-color: var(--violeta);
+  background-image:
+    radial-gradient(ellipse at 30% 30%, rgba(124, 58, 237, 0.4)  0%, transparent 60%),
+    radial-gradient(ellipse at 75% 70%, rgba(59, 130, 246, 0.18) 0%, transparent 55%),
+    var(--textura-ruido);
+  color: var(--creme);
+  padding: 100px 24px;
+  text-align: center;
+}
+
+/* Responsivo personagens */
+@media (max-width: 920px) {
+  .personagens-destaques-grid { grid-template-columns: 1fr; max-width: 460px; }
+  .personagens-secundarios-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .personagens-secundarios-grid { grid-template-columns: 1fr; max-width: 340px; }
+}
+
+/* ============================================================
    PÁGINA SOBRE
    ============================================================ */
 .secao-bio {

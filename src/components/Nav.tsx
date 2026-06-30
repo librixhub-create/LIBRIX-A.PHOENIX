@@ -1,7 +1,7 @@
 type NavProps = {
   /** A página inicial usa âncoras na própria página; as restantes apontam de volta para "/". */
   home?: boolean;
-  active?: "sobre" | "blog" | "contacto";
+  active?: "sobre" | "blog" | "contacto" | "personagens";
 };
 
 export default function Nav({ home = false, active }: NavProps) {
@@ -20,6 +20,7 @@ export default function Nav({ home = false, active }: NavProps) {
           <li><a href={topo}>Início</a></li>
           <li><a href={oLivro}>O Livro</a></li>
           <li><a href={sinopse}>Sinopse</a></li>
+          <li><a href="/personagens" className={active === "personagens" ? "ativo" : undefined}>Personagens</a></li>
           <li><a href="/sobre" className={active === "sobre" ? "ativo" : undefined}>Sobre</a></li>
           <li><a href="/blog" className={active === "blog" ? "ativo" : undefined}>Blog</a></li>
           {active === "contacto" ? (

@@ -11,6 +11,7 @@ export default function Footer({ editora = false }: FooterProps) {
       <p className="creditos">© 2026 A. Phoenix · Entre Mundos · Publicado por Librix Hub</p>
       <ul className="rodape-links">
         <li><a href="/#topo">Início</a></li>
+        <li><a href="/personagens">Personagens</a></li>
         <li><a href="/sobre">Sobre</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/#o-livro">Adquirir</a></li>
