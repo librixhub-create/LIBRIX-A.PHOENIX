@@ -409,6 +409,24 @@ section { position: relative; }
   margin: 0 auto;
 }
 
+/* Hero sem imagem — conteúdo centrado */
+.hero-centrado {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--max-largura);
+  padding: 160px 40px 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-centrado .hero-conteudo { max-width: 680px; }
+.hero-centrado .hero-linha    { margin: 0 auto; }
+.hero-centrado .hero-separador { margin: 0 auto; }
+.hero-centrado .grupo-botoes  { justify-content: center; }
+
 .hero-conteudo {
   will-change: transform, opacity;
 }
@@ -2973,6 +2991,8 @@ body { padding-bottom: 64px; }
   .hero-visual { order: -1; }
   .hero-book-3d { width: 180px; height: 260px; }
   .hero-book-glow { width: 260px; height: 260px; }
+
+  .hero-centrado { padding: 120px 24px 90px; }
 
   .livro-grid,
   .autora-grid,

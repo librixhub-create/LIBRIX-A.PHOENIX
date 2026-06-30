@@ -90,23 +90,15 @@ export default function ClientEffects() {
       elementosAnimados.forEach((el) => el.classList.add("visivel"));
     }
 
-    // ---------- Parallax duplo: texto (rápido) + livro (lento) ----------
+    // ---------- Parallax hero: texto fade ao scroll ----------
     const heroConteudo = document.querySelector(".hero-conteudo") as HTMLElement | null;
-    const heroVisual   = document.querySelector(".hero-visual")   as HTMLElement | null;
-    if ((heroConteudo || heroVisual) && !prefereMenosMovimento) {
+    if (heroConteudo && !prefereMenosMovimento) {
       const aoScrollarParallax = () => {
         const scrollY = window.scrollY;
         const alturaJanela = window.innerHeight;
         if (scrollY < alturaJanela) {
-          if (heroConteudo) {
-            heroConteudo.style.transform = `translateY(${scrollY * 0.22}px)`;
-            heroConteudo.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.7)));
-          }
-          if (heroVisual) {
-            // O livro move-se mais devagar → cria sensação de profundidade
-            heroVisual.style.transform = `translateY(${scrollY * 0.1}px)`;
-            heroVisual.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.85)));
-          }
+          heroConteudo.style.transform = `translateY(${scrollY * 0.18}px)`;
+          heroConteudo.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.7)));
         }
       };
       aoScrollarParallax();

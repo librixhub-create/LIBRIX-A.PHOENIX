@@ -62,8 +62,7 @@ export default function HomePage() {
           <span className="orb orb-4" />
         </div>
 
-        <div className="hero-split">
-          {/* Lado esquerdo — texto */}
+        <div className="hero-centrado">
           <div className="hero-conteudo">
             <div className="hero-linha" />
             <span className="hero-titulo-mascara">
@@ -80,19 +79,6 @@ export default function HomePage() {
               <div className="grupo-botoes">
                 <button type="button" className="botao botao-solido" data-adquirir>Adquirir Agora</button>
                 <a href="#sinopse" className="botao botao-contorno">Ler a Sinopse</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Lado direito — livro 3D flutuante */}
-          <div className="hero-visual" aria-hidden="true">
-            <div className="hero-book-glow" />
-            <div className="book-3d hero-book-3d">
-              <div className="book-spine"><span>ENTRE MUNDOS · O CHAMADO</span></div>
-              <div className="book-pages" />
-              <div className="book-front">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/livro/capa-frontal.webp" alt="" className="book-capa-img" />
               </div>
             </div>
           </div>
