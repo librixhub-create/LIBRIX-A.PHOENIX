@@ -1,13 +1,11 @@
 type FooterProps = {
   /** Apenas a página Sobre mostra a nota editorial completa da Librix Hub. */
   editora?: boolean;
-  /** A página principal usa o tema grafite + dourado em vez do violeta padrão. */
-  home?: boolean;
 };
 
-export default function Footer({ editora = false, home = false }: FooterProps) {
+export default function Footer({ editora = false }: FooterProps) {
   return (
-    <footer className={home ? "rodape tema-grafite" : "rodape"}>
+    <footer className="rodape">
       <img src="/assets/logo/logo-120.png" alt="A. Phoenix" className="rodape-rosa" />
       <p className="nome">A. PHOENIX</p>
       <p className="creditos">© 2026 A. Phoenix · Entre Mundos · Publicado por Librix Hub</p>

@@ -14,7 +14,7 @@ export default function Nav({ home = false, active }: NavProps) {
   const novidades = home ? "#experiencias" : "/#experiencias";
 
   return (
-    <nav className={home ? "nav tema-grafite" : "nav nav-scroll"}>
+    <nav className={home ? "nav" : "nav nav-scroll"}>
       <div className="container">
         <a href="/" className="nav-logo">
           <img src="/assets/logo/logo-120.png" alt="" className="nav-logo-img" />

@@ -90,22 +90,6 @@ export default function ClientEffects() {
       elementosAnimados.forEach((el) => el.classList.add("visivel"));
     }
 
-    // ---------- Parallax hero: texto fade ao scroll ----------
-    const heroConteudo = document.querySelector(".hero-conteudo") as HTMLElement | null;
-    if (heroConteudo && !prefereMenosMovimento) {
-      const aoScrollarParallax = () => {
-        const scrollY = window.scrollY;
-        const alturaJanela = window.innerHeight;
-        if (scrollY < alturaJanela) {
-          heroConteudo.style.transform = `translateY(${scrollY * 0.18}px)`;
-          heroConteudo.style.opacity   = String(Math.max(0, 1 - scrollY / (alturaJanela * 0.7)));
-        }
-      };
-      aoScrollarParallax();
-      window.addEventListener("scroll", aoScrollarParallax, { passive: true });
-      cleanups.push(() => window.removeEventListener("scroll", aoScrollarParallax));
-    }
-
     // ---------- Tilt 3D nos cards ao mover o rato ----------
     if (!prefereMenosMovimento && window.matchMedia("(pointer: fine)").matches) {
       const cardsParaTilt = Array.from(
@@ -139,80 +123,11 @@ export default function ClientEffects() {
       );
     }
 
-    // ---------- Cursor personalizado (apenas em dispositivos com rato) ----------
-    if (window.matchMedia("(pointer: fine)").matches) {
-      const cursor = document.createElement("div");
-      cursor.className = "cursor-personalizado";
-      cursor.setAttribute("aria-hidden", "true");
-      document.body.appendChild(cursor);
-
-      let cursorAtivo = false;
-      const onMouseMove = (evento: MouseEvent) => {
-        cursor.style.left = evento.clientX + "px";
-        cursor.style.top = evento.clientY + "px";
-        if (!cursorAtivo) {
-          cursor.classList.add("cursor-ativo");
-          cursorAtivo = true;
-        }
-      };
-      const onMouseLeave = () => {
-        cursor.classList.remove("cursor-ativo");
-        cursorAtivo = false;
-      };
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseleave", onMouseLeave);
-
-      const elementosInterativos = Array.from(
-        document.querySelectorAll("a, button, .card-post, .botao, .book-3d, input, textarea")
-      );
-      const onEnter = () => cursor.classList.add("cursor-hover");
-      const onLeave = () => cursor.classList.remove("cursor-hover");
-      elementosInterativos.forEach((el) => {
-        el.addEventListener("mouseenter", onEnter);
-        el.addEventListener("mouseleave", onLeave);
-      });
-
-      cleanups.push(() => {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseleave", onMouseLeave);
-        elementosInterativos.forEach((el) => {
-          el.removeEventListener("mouseenter", onEnter);
-          el.removeEventListener("mouseleave", onLeave);
-        });
-        cursor.remove();
-      });
-    }
-
-    // ---------- Citação do hero — efeito de máquina de escrever ----------
+    // ---------- Citação do hero ----------
     const fraseHero = document.querySelector(".hero-frase") as HTMLElement | null;
-    let escritaTimeoutId: ReturnType<typeof setTimeout> | undefined;
     if (fraseHero) {
-      const textoCompleto = fraseHero.getAttribute("data-texto") || fraseHero.textContent?.trim() || "";
-
-      if (prefereMenosMovimento) {
-        fraseHero.textContent = textoCompleto;
-      } else {
-        fraseHero.textContent = "";
-        const cursorEscrita = document.createElement("span");
-        cursorEscrita.className = "cursor-escrita";
-        fraseHero.appendChild(cursorEscrita);
-
-        let indice = 0;
-        const escrever = () => {
-          if (indice <= textoCompleto.length) {
-            fraseHero.textContent = textoCompleto.slice(0, indice);
-            fraseHero.appendChild(cursorEscrita);
-            indice++;
-            const atraso = 26 + Math.random() * 38;
-            escritaTimeoutId = setTimeout(escrever, atraso);
-          } else {
-            fraseHero.classList.add("escrita-concluida");
-          }
-        };
-        escritaTimeoutId = setTimeout(escrever, 1900);
-      }
+      fraseHero.textContent = fraseHero.getAttribute("data-texto") || fraseHero.textContent?.trim() || "";
     }
-    cleanups.push(() => { if (escritaTimeoutId) clearTimeout(escritaTimeoutId); });
 
     // ---------- Contador animado das estatísticas da saga ----------
     const animarContador = (elemento: Element, alvo: number, duracao = 1900) => {

@@ -48,20 +48,12 @@ const livroJsonLd = {
 
 export default function HomePage() {
   return (
-    <div className="tema-grafite">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(livroJsonLd) }} />
       <Nav home />
 
       {/* ============ HERO ============ */}
       <header className="hero" id="topo">
-
-        {/* Orbs de fundo */}
-        <div className="hero-orbs" aria-hidden="true">
-          <span className="orb orb-1" />
-          <span className="orb orb-2" />
-          <span className="orb orb-3" />
-          <span className="orb orb-4" />
-        </div>
 
         <div className="hero-centrado">
           <div className="hero-conteudo">
@@ -706,7 +698,7 @@ export default function HomePage() {
 
       <Divisor de="var(--violeta)" para="var(--sombra-profunda)" />
 
-      <Footer home />
+      <Footer />
 
       {/* ============ MODAL ESCOLHA DE FORMATO (COMPRA NA AMAZON) ============ */}
       <div id="modal-adquirir" className="modal-adquirir" role="dialog" aria-modal="true" aria-labelledby="modal-adquirir-titulo" hidden>
@@ -737,6 +729,6 @@ export default function HomePage() {
         </div>
         <div className="modal-adquirir-fundo" id="modal-adquirir-fundo" />
       </div>
-    </div>
+    </>
   );
 }

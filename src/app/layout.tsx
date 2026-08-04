@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Cinzel, Lora, EB_Garamond } from "next/font/google";
+import { Cormorant, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import ClientEffects from "@/components/ClientEffects";
 import SpotifyBar from "@/components/SpotifyBar";
@@ -7,10 +7,8 @@ import PromoPopup from "@/components/PromoPopup";
 import OfertaGratisBanner from "@/components/OfertaGratisBanner";
 import ChatPhoenix from "@/components/ChatPhoenix";
 
-const fonteTitulo = Cinzel_Decorative({ variable: "--fonte-titulo", weight: ["400", "700"], subsets: ["latin"], display: "swap" });
-const fonteUi = Cinzel({ variable: "--fonte-ui", weight: ["400", "500", "600"], subsets: ["latin"], display: "swap" });
-const fonteSub = Lora({ variable: "--fonte-sub", style: ["normal", "italic"], weight: ["400", "600"], subsets: ["latin"], display: "swap" });
-const fonteCorpo = EB_Garamond({ variable: "--fonte-corpo", style: ["normal", "italic"], weight: ["400", "500"], subsets: ["latin"], display: "swap" });
+const cormorant = Cormorant({ variable: "--font-cormorant", style: ["normal", "italic"], weight: ["400", "500", "600", "700"], subsets: ["latin"], display: "swap" });
+const sourceSerif = Source_Serif_4({ variable: "--font-source-serif", style: ["normal", "italic"], weight: ["400", "600"], subsets: ["latin"], display: "swap" });
 
 const descricaoPadrao =
   "Entre Mundos: O Chamado — Livro I, de A. Phoenix. Uma saga de fantasia romântica onde a luz e a sombra se encontram. Adquira já o seu exemplar.";
@@ -46,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-PT" className={`${fonteTitulo.variable} ${fonteUi.variable} ${fonteSub.variable} ${fonteCorpo.variable}`}>
+    <html lang="pt-PT" className={`${cormorant.variable} ${sourceSerif.variable}`}>
       <body>
         <OfertaGratisBanner />
         {children}
