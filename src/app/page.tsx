@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FlipbookAmostra from "@/components/FlipbookAmostra";
+import OfertaGratisSecao from "@/components/OfertaGratisSecao";
 
 function Divisor({ de, para }: { de: string; para: string }) {
   return (
@@ -30,7 +31,7 @@ const livroJsonLd = {
   bookFormat: "https://schema.org/Hardcover",
   isPartOf: { "@type": "BookSeries", name: "Entre Mundos" },
   position: 1,
-  numberOfPages: 324,
+  numberOfPages: 388,
   inLanguage: "pt-PT",
   datePublished: "2026",
   publisher: { "@type": "Organization", name: "Librix Hub" },
@@ -47,7 +48,7 @@ const livroJsonLd = {
 
 export default function HomePage() {
   return (
-    <>
+    <div className="tema-grafite">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(livroJsonLd) }} />
       <Nav home />
 
@@ -80,6 +81,7 @@ export default function HomePage() {
                 <button type="button" className="botao botao-solido" data-adquirir>Adquirir Agora</button>
                 <a href="#sinopse" className="botao botao-contorno">Ler a Sinopse</a>
               </div>
+              <p className="hero-disponibilidade">Já disponível na Amazon — Kindle, capa comum e capa dura</p>
             </div>
           </div>
         </div>
@@ -90,6 +92,8 @@ export default function HomePage() {
           </svg>
         </div>
       </header>
+
+      <OfertaGratisSecao />
 
       <Divisor de="var(--sombra)" para="var(--creme)" />
 
@@ -104,10 +108,29 @@ export default function HomePage() {
         <cite>— Entre Mundos: O Chamado</cite>
       </section>
 
+      {/* ============ CONVITE PARA O QUIZ ============ */}
+      <section className="secao-quiz-teaser">
+        <div className="container">
+          <a href="#quiz" className="quiz-teaser-card surge-scroll">
+            <span className="quiz-teaser-icon" aria-hidden="true">✦</span>
+            <div className="quiz-teaser-texto">
+              <p className="quiz-teaser-titulo">Que Fragmento de Entre Mundos Vive em Ti?</p>
+              <p className="quiz-teaser-sub">Responde a 5 perguntas rápidas e descobre com que personagem da saga te identificas.</p>
+            </div>
+            <span className="quiz-teaser-cta">
+              Fazer o Teste
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
       {/* ============ O LIVRO (produto) ============ */}
       <section className="secao-livro" id="o-livro">
         <div className="livro-grid">
-          <div className="book-3d-container surge-scroll">
+          <div className="book-3d-container">
             <div className="book-3d">
               <div className="book-spine"><span>ENTRE MUNDOS · O CHAMADO</span></div>
               <div className="book-pages" />
@@ -118,7 +141,10 @@ export default function HomePage() {
           </div>
 
           <div className="livro-info surge-scroll">
-            <span className="badge">Saga · Livro I</span>
+            <div className="badges-linha">
+              <span className="badge">Saga · Livro I</span>
+              <span className="badge badge-disponivel">Disponível Agora</span>
+            </div>
             <h2>Entre Mundos: O Chamado</h2>
             <p className="autor-linha">por A. Phoenix</p>
             <div className="linha-fina-ouro" />
@@ -127,7 +153,7 @@ export default function HomePage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                </svg>{" "}324 páginas
+                </svg>{" "}388 páginas
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -157,11 +183,15 @@ export default function HomePage() {
                 </svg>{" "}Publicado por Librix Hub
               </li>
             </ul>
-            <p className="preco">€14,90 <span>/ edição digital e física</span></p>
+            <div className="formatos-disponiveis">
+              <span className="formato-chip">Kindle</span>
+              <span className="formato-chip">Capa Comum</span>
+              <span className="formato-chip">Capa Dura</span>
+            </div>
             <div className="cta-livro">
               <button type="button" className="botao botao-escuro" data-adquirir>Adquirir o Livro</button>
             </div>
-            <p className="texto-pequeno">Disponível em formato digital e físico</p>
+            <p className="texto-pequeno texto-confianca">🔒 Compra segura · Envio pela Amazon</p>
           </div>
         </div>
       </section>
@@ -325,7 +355,7 @@ export default function HomePage() {
           <div className="linha-ouro fundo-escuro surge-scroll" />
           <div className="stats-grid surge-scroll">
             <div className="stat-item">
-              <span className="stat-number" data-counter="324">0</span>
+              <span className="stat-number" data-counter="388">0</span>
               <span className="stat-label">Páginas</span>
             </div>
             <div className="stat-item">
@@ -481,7 +511,7 @@ export default function HomePage() {
         <div className="container">
           <p className="titulo-secao surge-scroll">Novidades Exclusivas</p>
           <p className="sub surge-scroll" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 56px", color: "var(--cinza-suave)" }}>
-            Três experiências interativas criadas especialmente para os leitores de <em>Entre Mundos</em>. Explora, joga e decifra.
+            Quatro experiências interativas criadas especialmente para os leitores de <em>Entre Mundos</em>. Explora, joga e decifra.
           </p>
 
           <div className="novidades-grid">
@@ -545,6 +575,26 @@ export default function HomePage() {
               </p>
               <span className="novidade-cta">
                 Decifrar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+
+            {/* Quem é Quem */}
+            <a
+              href="/jogo-personagens"
+              className="novidade-card surge-scroll"
+              aria-label="Jogar Quem é Quem"
+            >
+              <div className="novidade-icon" aria-hidden="true">🎭</div>
+              <div className="novidade-tag">Jogo</div>
+              <h3 className="novidade-titulo">Quem é Quem?</h3>
+              <p className="novidade-desc">
+                Oito pistas, quatro rostos por ronda. Reconheces os personagens de Entre Mundos só pelo seu papel na saga?
+              </p>
+              <span className="novidade-cta">
+                Jogar
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={16} height={16} aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -656,28 +706,37 @@ export default function HomePage() {
 
       <Divisor de="var(--violeta)" para="var(--sombra-profunda)" />
 
-      <Footer />
+      <Footer home />
 
-      {/* ============ MODAL AVISO DATA DE LANÇAMENTO ============ */}
+      {/* ============ MODAL ESCOLHA DE FORMATO (COMPRA NA AMAZON) ============ */}
       <div id="modal-adquirir" className="modal-adquirir" role="dialog" aria-modal="true" aria-labelledby="modal-adquirir-titulo" hidden>
         <div className="modal-adquirir-caixa">
-          <div className="modal-adquirir-icon" aria-hidden="true">📅</div>
-          <p className="modal-adquirir-data">10 / 07 / 2026</p>
-          <h2 id="modal-adquirir-titulo" className="modal-adquirir-titulo">Em breve na Amazon</h2>
+          <div className="modal-adquirir-icon" aria-hidden="true">📖</div>
+          <h2 id="modal-adquirir-titulo" className="modal-adquirir-titulo">Escolhe o teu formato</h2>
           <p className="modal-adquirir-texto">
-            <strong>Entre Mundos: O Chamado</strong> estará disponível para compra no dia <strong>10 de julho de 2026</strong> na Amazon. Aguarda essa data para adquirires o teu exemplar.
+            <strong>Entre Mundos: O Chamado</strong> já está disponível na Amazon. Escolhe a edição que preferes:
           </p>
-          <p className="modal-adquirir-subtexto">
-            Enquanto isso, explora o blog do site e acompanha todas as novidades e atualizações — há muito para descobrir antes do lançamento!
-          </p>
+          <div className="modal-adquirir-formatos">
+            <a href="https://www.amazon.com.br/dp/B0H7VNSZB6" target="_blank" rel="noopener" className="botao botao-escuro modal-adquirir-formato">
+              <span className="modal-adquirir-formato-nome">Kindle</span>
+              <span className="modal-adquirir-formato-loja">Comprar na Amazon</span>
+            </a>
+            <a href="https://www.amazon.com/dp/B0H7T9FX13" target="_blank" rel="noopener" className="botao botao-escuro modal-adquirir-formato">
+              <span className="modal-adquirir-formato-nome">Capa Comum</span>
+              <span className="modal-adquirir-formato-loja">Comprar na Amazon</span>
+            </a>
+            <a href="https://www.amazon.com/dp/B0H87J4MYX/ref=tmm_hrd_swatch_0" target="_blank" rel="noopener" className="botao botao-escuro modal-adquirir-formato">
+              <span className="modal-adquirir-formato-nome">Capa Dura</span>
+              <span className="modal-adquirir-formato-loja">Comprar na Amazon</span>
+            </a>
+          </div>
           <div className="modal-adquirir-botoes">
-            <a href="/blog" className="botao botao-solido">Ver o Blog</a>
             <button type="button" className="botao botao-contorno" id="modal-adquirir-fechar">Fechar</button>
           </div>
           <button type="button" className="modal-adquirir-x" id="modal-adquirir-x" aria-label="Fechar">✕</button>
         </div>
         <div className="modal-adquirir-fundo" id="modal-adquirir-fundo" />
       </div>
-    </>
+    </div>
   );
 }

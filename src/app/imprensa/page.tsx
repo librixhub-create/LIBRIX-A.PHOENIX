@@ -52,7 +52,7 @@ export default function ImprensaPage() {
               </div>
               <div className="contacto-detalhe">
                 <span className="rotulo">Páginas</span>
-                <span className="valor">324</span>
+                <span className="valor">388</span>
               </div>
               <div className="contacto-detalhe">
                 <span className="rotulo">Saga</span>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { personagens } from "@/data/personagens";
 
 const descricao =
   "Conhece os personagens de Entre Mundos: O Chamado — Gabrielle, Ethan, Arael e todos os que habitam os mundos de A. Phoenix.";
@@ -11,85 +12,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Personagens — A. Phoenix", description: descricao },
   twitter: { card: "summary_large_image", title: "Personagens — A. Phoenix", description: descricao },
 };
-
-type Personagem = {
-  slug: string;
-  nome: string;
-  papel: string;
-  mundo: string;
-  descricao: string;
-  foto: string;
-  destaque?: boolean;
-};
-
-const personagens: Personagem[] = [
-  {
-    slug: "gabrielle",
-    nome: "Gabrielle Dubois",
-    papel: "A Alma que Lembra",
-    mundo: "Londres · Paris",
-    descricao:
-      "A jovem protagonista da saga. Marcada por memórias que não são suas e por um poder que ainda não compreende, Gabrielle é o centro de uma disputa ancestral entre a luz e a sombra.",
-    foto: "/assets/personagens/gabrielle-dubois.jpeg",
-    destaque: true,
-  },
-  {
-    slug: "ethan",
-    nome: "Ethan Smith",
-    papel: "O Que Carrega o Silêncio",
-    mundo: "Londres · Paris",
-    descricao:
-      "Filho de uma família de elite londrina, Ethan guarda segredos que protegem mais do que a si próprio. O seu silêncio é uma escolha — e uma armadura.",
-    foto: "/assets/personagens/ethan-smith.jpeg",
-    destaque: true,
-  },
-  {
-    slug: "arael",
-    nome: "Arael",
-    papel: "O Guardador do Véu",
-    mundo: "Além da Fenda",
-    descricao:
-      "Figura ancestral aprisionada além da Fenda. Arael é o guardião de segredos que remontam a séculos. O seu regresso muda tudo o que Gabrielle julgava saber.",
-    foto: "/assets/personagens/arael.jpeg",
-    destaque: true,
-  },
-  {
-    slug: "angeli",
-    nome: "Angeli Dubois",
-    papel: "A Mãe que Sabe Mais do que Diz",
-    mundo: "Londres · Paris",
-    descricao:
-      "A mãe de Gabrielle nunca foi apenas uma mãe. Por trás do amor e do silêncio, Angeli carrega um peso que há muito escolheu não partilhar com ninguém.",
-    foto: "/assets/personagens/angeli-dubois.jpeg",
-  },
-  {
-    slug: "asha",
-    nome: "Asha",
-    papel: "A que Vigia o Silêncio",
-    mundo: "Londres · Vilarejo do Véu",
-    descricao:
-      "Presente em Londres e no Vilarejo do Véu, Asha observa onde outros agem. O seu papel na história é mais profundo do que aparenta à superfície.",
-    foto: "/assets/personagens/asha.jpeg",
-  },
-  {
-    slug: "amirah",
-    nome: "Amirah",
-    papel: "A Sacerdotisa que Não Descansou",
-    mundo: "Pérsia Antiga",
-    descricao:
-      "Da Pérsia Antiga, além da Fenda. Amirah lançou o selo que alterou o destino de todos. A sua presença na história transcende o tempo e os mundos.",
-    foto: "/assets/personagens/amirah.jpeg",
-  },
-  {
-    slug: "loui",
-    nome: "Loui",
-    papel: "A Melodia que Ficou",
-    mundo: "Paris · Flashback",
-    descricao:
-      "Paris. Música. Memória. Loui é a figura que ficou no passado de Gabrielle — e que não a deixou partir. Algumas presenças marcam para sempre.",
-    foto: "/assets/personagens/loui.jpeg",
-  },
-];
 
 const destaques = personagens.filter((p) => p.destaque);
 const secundarios = personagens.filter((p) => !p.destaque);
@@ -108,6 +30,7 @@ export default function PersonagensPage() {
           Conhece quem habita os mundos de <em>Entre Mundos</em>.
         </p>
         <div className="hero-personagens-ornamento" aria-hidden="true">❧ ✦ ❧</div>
+        <p className="hero-personagens-creditos">Artes dos personagens: © Helyd.dreambooks — todos os direitos reservados</p>
       </header>
 
       {/* ── Personagens em destaque (3 protagonistas) ── */}
@@ -156,6 +79,16 @@ export default function PersonagensPage() {
                     className="card-personagem-sec-foto"
                     loading="lazy"
                   />
+                  {p.fotoAlt && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.fotoAlt}
+                      alt=""
+                      aria-hidden="true"
+                      className="card-personagem-sec-foto card-personagem-sec-foto--alt"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="card-personagem-sec-corpo">
                   <span className="card-personagem-sec-mundo">{p.mundo}</span>
@@ -166,6 +99,7 @@ export default function PersonagensPage() {
               </article>
             ))}
           </div>
+          <p className="video-copyright">Artes dos personagens: © Helyd.dreambooks — todos os direitos reservados</p>
         </div>
       </section>
 
@@ -177,8 +111,8 @@ export default function PersonagensPage() {
             Todos estes personagens convergem numa história que começa a 10 de julho de 2026.
           </p>
           <div className="grupo-botoes" style={{ justifyContent: "center" }}>
-            <a href="/blog" className="botao botao-solido">Ver o Blog</a>
-            <a href="/#experiencias" className="botao botao-contorno">Novidades Exclusivas</a>
+            <a href="/jogo-personagens" className="botao botao-solido">Jogar Quem é Quem</a>
+            <a href="/blog" className="botao botao-contorno">Ver o Blog</a>
           </div>
         </div>
       </section>

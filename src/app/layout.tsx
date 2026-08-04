@@ -3,6 +3,9 @@ import { Cinzel_Decorative, Cinzel, Lora, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import ClientEffects from "@/components/ClientEffects";
 import SpotifyBar from "@/components/SpotifyBar";
+import PromoPopup from "@/components/PromoPopup";
+import OfertaGratisBanner from "@/components/OfertaGratisBanner";
+import ChatPhoenix from "@/components/ChatPhoenix";
 
 const fonteTitulo = Cinzel_Decorative({ variable: "--fonte-titulo", weight: ["400", "700"], subsets: ["latin"], display: "swap" });
 const fonteUi = Cinzel({ variable: "--fonte-ui", weight: ["400", "500", "600"], subsets: ["latin"], display: "swap" });
@@ -45,8 +48,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-PT" className={`${fonteTitulo.variable} ${fonteUi.variable} ${fonteSub.variable} ${fonteCorpo.variable}`}>
       <body>
+        <OfertaGratisBanner />
         {children}
         <SpotifyBar />
+        <PromoPopup />
+        <ChatPhoenix />
         <ClientEffects />
       </body>
     </html>
