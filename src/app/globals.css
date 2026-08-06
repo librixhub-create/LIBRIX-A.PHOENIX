@@ -452,7 +452,7 @@ body.tem-oferta-banner .nav { top: 46px; }
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-  opacity: 0.6;
+  opacity: 0.35;
   mix-blend-mode: luminosity;
   pointer-events: none;
 }
