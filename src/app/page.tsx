@@ -55,6 +55,17 @@ export default function HomePage() {
       {/* ============ HERO ============ */}
       <header className="hero" id="topo">
 
+        <video
+          className="hero-video"
+          src="/assets/video/hero-fundo.mp4"
+          poster="/assets/artes/cidade-que-respira.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+
         <div className="hero-centrado">
           <div className="hero-conteudo">
             <div className="hero-linha" />

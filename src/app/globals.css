@@ -433,6 +433,7 @@ body.tem-oferta-banner .nav { top: 46px; }
     radial-gradient(ellipse at 50% 30%, rgba(110, 59, 59, 0.35) 0%, transparent 62%);
 }
 
+/* Foto de fundo — serve de poster/fallback; escondida sempre que o vídeo (abaixo) está ativo */
 .hero::before {
   content: "";
   position: absolute;
@@ -440,8 +441,20 @@ body.tem-oferta-banner .nav { top: 46px; }
   background-image: url("/assets/artes/cidade-que-respira.webp");
   background-size: cover;
   background-position: center 28%;
-  opacity: 0.5;
+  opacity: 0;
   mix-blend-mode: luminosity;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0.6;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
 }
 
 .hero::after {
@@ -3971,6 +3984,8 @@ body { padding-bottom: 64px; }
     transform: none !important;
     width: auto !important;
   }
+  .hero-video { display: none; }
+  .hero::before { opacity: 0.5; }
 }
 
 /* ============================================================
