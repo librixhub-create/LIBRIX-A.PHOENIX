@@ -3898,8 +3898,8 @@ body { padding-bottom: 64px; }
 
   .bio-grid .avatar-wrap { position: static; }
 
-  .audio-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
-  .audio-capa { margin-bottom: 12px; }
+  .audio-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .audio-capa { margin-bottom: 34px; }
   .audio-descricao { margin-left: auto; margin-right: auto; }
 
   .blog-grid { grid-template-columns: 1fr 1fr; }
@@ -3957,8 +3957,13 @@ body { padding-bottom: 64px; }
 
   .secao-newsletter::before { font-size: 38vw; }
 
-  .audio-player { flex-direction: column; gap: 18px; padding: 24px; }
+  .audio-descricao { margin-bottom: 26px; }
+  .audio-player { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px 20px; margin-bottom: 18px; }
+  .audio-botao { align-self: center; }
+  .audio-corpo { width: 100%; }
+  .audio-onda { height: 24px; }
   .audio-tempos { font-size: 10px; }
+  .audio-legenda { margin-bottom: 18px; }
 
   .quiz-card { padding: 32px 24px; }
   .quiz-progresso-texto { display: none; }
