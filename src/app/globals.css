@@ -1791,6 +1791,68 @@ body.tem-oferta-banner .nav { top: 46px; }
 }
 
 /* ============================================================
+   SECÇÃO — AVALIAÇÕES DE LEITORES
+   ============================================================ */
+.secao-avaliacoes {
+  background: var(--branco-puro);
+  padding: 110px 24px 130px;
+}
+
+.avaliacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: var(--max-largura);
+  margin: 0 auto;
+}
+
+.avaliacao-card {
+  border: 1px solid rgba(176, 141, 87, 0.3);
+  background: var(--creme);
+  border-radius: 4px;
+  padding: 38px 34px;
+  transition: border-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+}
+.avaliacao-card:hover {
+  border-color: var(--ouro);
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(20, 17, 15, 0.1);
+}
+
+.avaliacao-estrelas {
+  color: var(--ouro);
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+}
+
+.avaliacao-texto {
+  font-family: var(--fonte-sub);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--sombra);
+  margin-bottom: 22px;
+}
+
+.avaliacao-autor {
+  font-family: var(--fonte-ui);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ouro-escuro);
+}
+.avaliacao-autor span {
+  font-family: var(--fonte-corpo);
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 760px) {
+  .avaliacoes-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SECÇÃO — A SAGA EM NÚMEROS (estatísticas com contadores)
    ============================================================ */
 .secao-stats {
@@ -3868,7 +3930,7 @@ body { padding-bottom: 64px; }
 
   .secao-livro, .secao-sinopse, .secao-autora, .secao-blog,
   .secao-bio, .secao-contacto, .secao-post, .secao-blog-listagem, .secao-stats,
-  .secao-audio, .secao-quiz, .secao-novidades {
+  .secao-audio, .secao-quiz, .secao-novidades, .secao-avaliacoes {
     padding-top: 90px;
     padding-bottom: 90px;
   }
