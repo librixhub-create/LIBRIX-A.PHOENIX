@@ -1147,10 +1147,14 @@ body.tem-oferta-banner .nav { top: 46px; }
 .audio-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
+  gap: 64px;
   align-items: center;
   max-width: var(--max-largura);
   margin: 0 auto;
+  background: rgba(20, 17, 15, 0.22);
+  border: 1px solid rgba(176, 141, 87, 0.22);
+  border-radius: 10px;
+  padding: 56px 60px;
 }
 
 .audio-capa {
@@ -1158,33 +1162,45 @@ body.tem-oferta-banner .nav { top: 46px; }
   display: flex;
   justify-content: center;
 }
+.audio-capa-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(ellipse at center,
+    rgba(176, 141, 87, 0.28) 0%,
+    rgba(110, 59, 59, 0.2) 45%,
+    transparent 72%);
+  border-radius: 50%;
+  animation: pulsarGlow 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
 .audio-capa img {
+  position: relative;
   width: 100%;
-  max-width: 280px;
+  max-width: 260px;
   border-radius: 3px;
   border: 1px solid rgba(176, 141, 87, 0.3);
   box-shadow: 0 30px 70px rgba(20, 17, 15, 0.55);
 }
 .audio-capa-selo {
   position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -10px;
+  right: -10px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--fonte-ui);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--sombra);
-  background: var(--ouro);
-  border-radius: 2px;
-  padding: 9px 18px;
+  background: linear-gradient(135deg, var(--ouro) 0%, var(--violeta-claro) 130%);
+  border-radius: 999px;
+  padding: 8px 16px;
   white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(20, 17, 15, 0.35);
+  box-shadow: 0 8px 20px rgba(20, 17, 15, 0.4);
 }
-.audio-capa-selo svg { width: 14px; height: 14px; }
+.audio-capa-selo svg { width: 13px; height: 13px; }
 
 .audio-conteudo h2 {
   font-family: var(--fonte-titulo);
@@ -1198,37 +1214,38 @@ body.tem-oferta-banner .nav { top: 46px; }
   color: var(--creme);
   opacity: 0.88;
   max-width: 480px;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 /* ---- Player personalizado ---- */
 .audio-player {
   display: flex;
   align-items: center;
-  gap: 24px;
-  background: rgba(20, 17, 15, 0.3);
-  border: 1px solid rgba(176, 141, 87, 0.25);
-  border-radius: 6px;
-  padding: 22px 28px;
-  margin-bottom: 24px;
+  gap: 22px;
+  background: linear-gradient(155deg, rgba(176, 141, 87, 0.1) 0%, rgba(20, 17, 15, 0.35) 100%);
+  border: 1px solid rgba(176, 141, 87, 0.28);
+  border-radius: 8px;
+  padding: 20px 26px;
+  margin-bottom: 22px;
 }
 .audio-botao {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 1px solid var(--ouro);
-  background: rgba(176, 141, 87, 0.08);
-  color: var(--ouro);
+  border: none;
+  background: linear-gradient(135deg, var(--ouro) 0%, var(--ouro-escuro) 100%);
+  color: var(--sombra);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   position: relative;
+  box-shadow: 0 8px 20px rgba(20, 17, 15, 0.4);
   transition: var(--transicao);
 }
-.audio-botao:hover { background: var(--ouro); color: var(--sombra); }
-.audio-botao svg { width: 22px; height: 22px; }
+.audio-botao:hover { transform: scale(1.06); }
+.audio-botao svg { width: 20px; height: 20px; }
 .audio-botao .icone-pause { display: none; }
 .audio-player.a-tocar .audio-botao .icone-play { display: none; }
 .audio-player.a-tocar .audio-botao .icone-pause { display: block; }
@@ -1266,14 +1283,14 @@ body.tem-oferta-banner .nav { top: 46px; }
 .audio-onda span {
   flex: 1;
   height: 100%;
-  background: var(--ouro);
-  border-radius: 2px;
+  background: linear-gradient(180deg, var(--ouro) 0%, var(--violeta-claro) 100%);
+  border-radius: 3px;
   opacity: 0.35;
   transform: scaleY(0.18);
   transition: opacity 0.4s ease;
 }
 .audio-player.a-tocar .audio-onda span {
-  opacity: 0.85;
+  opacity: 0.9;
   animation: ondular 1.05s ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * 0.06s);
 }
@@ -3898,8 +3915,9 @@ body { padding-bottom: 64px; }
 
   .bio-grid .avatar-wrap { position: static; }
 
-  .audio-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .audio-capa { margin-bottom: 34px; }
+  .audio-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 40px 26px; }
+  .audio-capa { margin-bottom: 16px; }
+  .audio-capa-glow { width: 200px; height: 200px; }
   .audio-descricao { margin-left: auto; margin-right: auto; }
 
   .blog-grid { grid-template-columns: 1fr 1fr; }

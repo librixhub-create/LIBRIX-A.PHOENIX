@@ -199,6 +199,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ============ AVALIAÇÕES DE LEITORES ============ */}
+      <section className="secao-avaliacoes">
+        <div className="container">
+          <p className="titulo-secao fundo-claro surge-scroll">O Que Dizem as Leitoras</p>
+          <div className="linha-ouro surge-scroll" />
+          <div className="avaliacoes-grid">
+
+            <div className="avaliacao-card surge-scroll">
+              <div className="avaliacao-estrelas" aria-hidden="true">★★★★★</div>
+              <p className="avaliacao-texto">&ldquo;Foi uma leitura que me surpreendeu. No começo fui conhecendo o universo aos poucos, mas depois fiquei completamente envolvida pela história. Os personagens têm profundidade e o final me deixou curiosa para saber o que acontece a seguir. Vale muito a leitura... super recomendo.&rdquo;</p>
+              <p className="avaliacao-autor">Luis <span>· Avaliação verificada na Amazon (Espanha)</span></p>
+            </div>
+
+            <div className="avaliacao-card surge-scroll">
+              <div className="avaliacao-estrelas" aria-hidden="true">★★★★★</div>
+              <p className="avaliacao-texto">&ldquo;Eu ri, chorei, fiquei com raiva, fiquei sem entender nada... e depois tudo fez sentido. Os personagens parecem pessoas de verdade. Os mistérios foram me prendendo de um jeito que eu dizia &lsquo;só mais um capítulo&rsquo;... e quando vi já eram quase 3h da manhã. Fazia tempo que um livro não me deixava tão envolvida assim.&rdquo;</p>
+              <p className="avaliacao-autor">Leitora <span>· mensagem enviada à autora via WhatsApp</span></p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <DivisorInverso de="var(--branco-puro)" para="var(--violeta)" />
 
       {/* ============ PRÉVIA EM ÁUDIO (AUDIOBOOK) ============ */}
@@ -209,6 +232,7 @@ export default function HomePage() {
 
           <div className="audio-grid surge-scroll">
             <div className="audio-capa">
+              <div className="audio-capa-glow" aria-hidden="true" />
               <img src="/assets/livro/capa-frontal.webp" alt="Capa do livro Entre Mundos: O Chamado, de A. Phoenix" />
               <div className="audio-capa-selo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
@@ -345,29 +369,6 @@ export default function HomePage() {
           <p className="amostra-intro surge-scroll">Um fragmento do Capítulo 1 — vira a página para continuar.</p>
           <div className="surge-scroll">
             <FlipbookAmostra />
-          </div>
-        </div>
-      </section>
-
-      {/* ============ AVALIAÇÕES DE LEITORES ============ */}
-      <section className="secao-avaliacoes">
-        <div className="container">
-          <p className="titulo-secao fundo-claro surge-scroll">O Que Dizem as Leitoras</p>
-          <div className="linha-ouro surge-scroll" />
-          <div className="avaliacoes-grid">
-
-            <div className="avaliacao-card surge-scroll">
-              <div className="avaliacao-estrelas" aria-hidden="true">★★★★★</div>
-              <p className="avaliacao-texto">&ldquo;Foi uma leitura que me surpreendeu. No começo fui conhecendo o universo aos poucos, mas depois fiquei completamente envolvida pela história. Os personagens têm profundidade e o final me deixou curiosa para saber o que acontece a seguir. Vale muito a leitura... super recomendo.&rdquo;</p>
-              <p className="avaliacao-autor">Luis <span>· Avaliação verificada na Amazon (Espanha)</span></p>
-            </div>
-
-            <div className="avaliacao-card surge-scroll">
-              <div className="avaliacao-estrelas" aria-hidden="true">★★★★★</div>
-              <p className="avaliacao-texto">&ldquo;Eu ri, chorei, fiquei com raiva, fiquei sem entender nada... e depois tudo fez sentido. Os personagens parecem pessoas de verdade. Os mistérios foram me prendendo de um jeito que eu dizia &lsquo;só mais um capítulo&rsquo;... e quando vi já eram quase 3h da manhã. Fazia tempo que um livro não me deixava tão envolvida assim.&rdquo;</p>
-              <p className="avaliacao-autor">Leitora <span>· mensagem enviada à autora via WhatsApp</span></p>
-            </div>
-
           </div>
         </div>
       </section>
