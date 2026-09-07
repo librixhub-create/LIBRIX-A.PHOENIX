@@ -202,8 +202,7 @@ export default function HomePage() {
       {/* ============ AVALIAÇÕES DE LEITORES ============ */}
       <section className="secao-avaliacoes">
         <div className="container">
-          <p className="titulo-secao fundo-claro surge-scroll">O Que Dizem as Leitoras</p>
-          <div className="linha-ouro surge-scroll" />
+          <h2 className="titulo-editorial surge-scroll">O Que Dizem as Leitoras</h2>
           <div className="avaliacoes-grid">
 
             <div className="avaliacao-card surge-scroll">
@@ -290,8 +289,7 @@ export default function HomePage() {
       {/* ============ SPOTIFY ============ */}
       <section className="secao-spotify" id="spotify">
         <div className="container">
-          <p className="titulo-secao surge-scroll">No Spotify</p>
-          <div className="linha-ouro fundo-escuro surge-scroll" />
+          <h2 className="titulo-editorial fundo-escuro surge-scroll">No Spotify</h2>
           <p className="spotify-secao-intro surge-scroll">
             Mergulha na atmosfera de <em>Entre Mundos</em> com a música da autora — disponível agora no Spotify.
           </p>
@@ -327,8 +325,7 @@ export default function HomePage() {
       {/* ============ VÍDEO ============ */}
       <section className="secao-video">
         <div className="container">
-          <p className="titulo-secao fundo-claro surge-scroll">Vê o Reel</p>
-          <div className="linha-ouro surge-scroll" />
+          <h2 className="titulo-editorial surge-scroll">Vê o Reel</h2>
           <div className="video-embed-wrap surge-scroll">
             <video controls playsInline poster="/assets/livro/capa-frontal.webp" className="video-nativo">
               <source src="/assets/video/reel-entre-mundos.mp4" type="video/mp4" />
@@ -536,7 +533,7 @@ export default function HomePage() {
       {/* ============ NOVIDADES EXCLUSIVAS ============ */}
       <section className="secao-novidades" id="experiencias">
         <div className="container">
-          <p className="titulo-secao surge-scroll">Novidades Exclusivas</p>
+          <h2 className="titulo-editorial fundo-escuro surge-scroll">Novidades Exclusivas</h2>
           <p className="sub surge-scroll" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 56px", color: "var(--cinza-suave)" }}>
             Quatro experiências interativas criadas especialmente para os leitores de <em>Entre Mundos</em>. Explora, joga e decifra.
           </p>
@@ -658,8 +655,7 @@ export default function HomePage() {
       {/* ============ BLOG (preview) ============ */}
       <section className="secao-blog" id="blog-preview">
         <div className="container">
-          <p className="titulo-secao fundo-claro surge-scroll">Do Blog</p>
-          <div className="linha-ouro surge-scroll" />
+          <h2 className="titulo-editorial surge-scroll">Do Blog</h2>
           <div className="blog-grid">
             <article className="card-post surge-scroll">
               <div className="blog-card-header bastidores" style={{ backgroundImage: "linear-gradient(165deg, rgba(13,13,26,.32) 0%, rgba(13,13,26,.8) 100%), url('/assets/artes/eco-do-pergaminho.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>

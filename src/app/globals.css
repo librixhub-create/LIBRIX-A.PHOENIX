@@ -110,6 +110,30 @@ section { position: relative; }
 
 .fundo-escuro .linha-ouro::before { background: var(--sombra); }
 
+/* Título editorial silencioso — secções secundárias, sem rótulo em caixa alta nem linha dourada */
+.titulo-editorial {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: clamp(24px, 3.4vw, 32px);
+  letter-spacing: 0.01em;
+  color: var(--sombra);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.titulo-editorial.fundo-escuro { color: var(--creme); }
+
+/* Legenda discreta acima de um <h2> próprio da secção, substitui o rótulo+linha quando já há título */
+.legenda-secao {
+  display: block;
+  font-family: var(--fonte-ui);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin-bottom: 10px;
+}
+.legenda-secao.fundo-escuro { color: rgba(242, 236, 225, 0.55); }
+
 /* ============================================================
    SEPARADORES ORGÂNICOS ENTRE SECÇÕES
    Onda em SVG: o fundo do invólucro mantém a cor da secção

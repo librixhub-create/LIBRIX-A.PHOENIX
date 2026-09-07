@@ -3,17 +3,17 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 const descricao =
-  "Entre Mundos: O Chamado, by A. Phoenix — a fantasy romance saga where light and shadow meet. English edition coming soon.";
+  "The Inverted Rose, by A. Phoenix — the English edition of Entre Mundos: O Chamado, a fantasy romance saga where light and shadow meet. Coming soon.";
 
 export const metadata: Metadata = {
-  title: "English Edition — Coming Soon",
+  title: "The Inverted Rose — English Edition Coming Soon",
   description: descricao,
-  openGraph: { title: "Entre Mundos: O Chamado — English Edition Coming Soon", description: descricao, images: ["/assets/livro/capa-frontal.webp"] },
-  twitter: { card: "summary_large_image", title: "Entre Mundos: O Chamado — English Edition Coming Soon", description: descricao, images: ["/assets/livro/capa-frontal.webp"] },
+  openGraph: { title: "The Inverted Rose — English Edition Coming Soon", description: descricao, images: ["/assets/livro/capa-en.png"] },
+  twitter: { card: "summary_large_image", title: "The Inverted Rose — English Edition Coming Soon", description: descricao, images: ["/assets/livro/capa-en.png"] },
 };
 
 const mensagemWhatsapp = encodeURIComponent(
-  "Hi! I'd love to know more about the English edition of Entre Mundos: O Chamado."
+  "Hi! I'd love to know more about The Inverted Rose, the English edition of Entre Mundos: O Chamado."
 );
 const linkWhatsapp = `https://wa.me/351930475550?text=${mensagemWhatsapp}`;
 
@@ -39,10 +39,10 @@ export default function EnglishPage() {
           <div className="hero-conteudo">
             <div className="hero-linha" />
             <span className="hero-titulo-mascara">
-              <h1 className="hero-titulo">ENTRE MUNDOS</h1>
+              <h1 className="hero-titulo">THE INVERTED ROSE</h1>
             </span>
             <div className="hero-separador" />
-            <p className="hero-subtitulo">The Calling</p>
+            <p className="hero-subtitulo">Entre Mundos Saga</p>
             <p className="hero-livro">Book I</p>
             <p className="hero-frase">
               &ldquo;Before the light, there was the shadow. And everything that came after was born from where the two met.&rdquo;
@@ -75,21 +75,22 @@ export default function EnglishPage() {
         <div className="livro-grid">
           <div className="book-3d-container">
             <div className="book-3d">
-              <div className="book-spine"><span>ENTRE MUNDOS · O CHAMADO</span></div>
+              <div className="book-spine"><span>THE INVERTED ROSE</span></div>
               <div className="book-pages" />
               <div className="book-front">
-                <img src="/assets/livro/capa-frontal.webp" alt="Cover of Entre Mundos: O Chamado, by A. Phoenix" className="book-capa-img" />
+                <img src="/assets/livro/capa-en.jpg" alt="Cover of The Inverted Rose, by A. Phoenix" className="book-capa-img" />
               </div>
             </div>
           </div>
 
           <div className="livro-info surge-scroll">
             <div className="badges-linha">
-              <span className="badge">Saga · Book I</span>
+              <span className="badge">Entre Mundos Saga · Book I</span>
               <span className="badge">English Edition · Coming Soon</span>
             </div>
-            <h2>Entre Mundos: O Chamado</h2>
+            <h2>The Inverted Rose</h2>
             <p className="autor-linha">by A. Phoenix</p>
+            <p className="texto-pequeno">Original Portuguese title: Entre Mundos: O Chamado</p>
             <div className="linha-fina-ouro" />
             <ul className="lista-detalhes">
               <li>
@@ -132,7 +133,7 @@ export default function EnglishPage() {
               <span className="formato-chip">Hardcover</span>
             </div>
             <div className="cta-livro">
-              <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" className="botao botao-escuro">Ask About the English Edition</a>
+              <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" className="botao botao-escuro">Ask About The Inverted Rose</a>
             </div>
             <p className="texto-pequeno texto-confianca">🇵🇹 Portuguese edition available now on Amazon · 🇬🇧 English edition coming soon</p>
           </div>
