@@ -950,6 +950,19 @@ body.tem-oferta-banner .nav { top: 46px; }
 .secao-livro {
   background: linear-gradient(180deg, var(--creme) 0%, #F3F1EC 100%);
   padding: 130px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.secao-livro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--sombra) 0%, var(--sombra-profunda) 100%);
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+  opacity: 0.97;
 }
 
 .livro-grid {
@@ -959,6 +972,7 @@ body.tem-oferta-banner .nav { top: 46px; }
   align-items: center;
   max-width: var(--max-largura);
   margin: 0 auto;
+  position: relative;
 }
 
 /* ---- Mockup 3D do livro ---- */
@@ -968,6 +982,17 @@ body.tem-oferta-banner .nav { top: 46px; }
   justify-content: center;
   align-items: center;
   padding: 2.5rem;
+  position: relative;
+}
+.book-3d-container::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--acento-glow) 0%, transparent 72%);
+  filter: blur(10px);
+  z-index: 0;
 }
 
 .book-3d {
@@ -1106,21 +1131,24 @@ body.tem-oferta-banner .nav { top: 46px; }
 }
 
 .lista-detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
   margin-bottom: 30px;
 }
 .lista-detalhes li {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--sombra);
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(156, 143, 126, 0.18);
+  padding: 12px 14px;
+  background: rgba(156, 143, 126, 0.07);
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
-.lista-detalhes li:last-child { border-bottom: none; }
 .lista-detalhes li svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   flex-shrink: 0;
   color: var(--ouro-escuro);
 }
@@ -3937,6 +3965,14 @@ body { padding-bottom: 64px; }
     grid-template-columns: 1fr;
     gap: 56px;
   }
+
+  .secao-livro::before {
+    width: 100%;
+    height: 380px;
+    clip-path: none;
+  }
+
+  .lista-detalhes { grid-template-columns: 1fr; }
 
   .bio-grid .avatar-wrap { position: static; }
 
