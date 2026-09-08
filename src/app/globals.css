@@ -5,27 +5,27 @@
    (--fonte-titulo etc.) para essas variáveis.
    ============================================================ */
 :root {
-  /* ── Paleta Dark Academia Contido ── */
-  --creme:           #F2ECE1;   /* pergaminho */
-  --sombra:          #1E1915;   /* preto-livro */
-  --sombra-profunda: #14110F;   /* preto-livro profundo */
-  --violeta:         #6E3B3B;   /* bordô */
-  --violeta-claro:   #B98F82;   /* bordô claro */
-  --ouro:            #B08D57;   /* ouro-velho */
-  --ouro-escuro:     #7A5530;
-  --cinza-suave:     #9C8F7E;   /* cinza quente */
-  --texto-suave:     #55493D;   /* texto secundário */
-  --branco-puro:     #FAF7F0;
-  --sombra-leve:     #2E2620;
+  /* ── Paleta Preto Neutro + Vermelho Único ── */
+  --creme:           #F5F4F0;   /* branco neutro quente, não mais pergaminho amarelado */
+  --sombra:          #1B1B1D;   /* preto-chumbo neutro */
+  --sombra-profunda: #101011;
+  --violeta:         #9E332B;   /* vermelho profundo — usado em texto/borda sobre fundo claro */
+  --violeta-claro:   #D98E86;
+  --ouro:            #C7443B;   /* vermelho vivo — usado em texto/ícone/borda sobre fundo escuro (mais luminoso p/ contraste) */
+  --ouro-escuro:     #9E332B;
+  --cinza-suave:     #9B9691;   /* cinza neutro */
+  --texto-suave:     #57544F;   /* texto secundário */
+  --branco-puro:     #FDFCFA;
+  --sombra-leve:     #26262A;
 
-  /* Vidro — tingido de pergaminho/ouro em vez de branco/roxo frio */
-  --vidro:           rgba(242, 236, 225, 0.05);
-  --vidro-hover:     rgba(242, 236, 225, 0.09);
-  --vidro-borda:     rgba(176, 141, 87, 0.22);
-  --vidro-borda-hover: rgba(176, 141, 87, 0.5);
-  --roxo-vivo:       #5C2E2E;   /* bordô profundo — refinado, menos "glossy" que o tom anterior */
-  --roxo-brilho:     #7A4040;
-  --acento-glow: rgba(92, 46, 46, 0.28);
+  /* Vidro — tingido de vermelho em vez de dourado */
+  --vidro:           rgba(245, 244, 240, 0.05);
+  --vidro-hover:     rgba(245, 244, 240, 0.09);
+  --vidro-borda:     rgba(199, 68, 59, 0.22);
+  --vidro-borda-hover: rgba(199, 68, 59, 0.5);
+  --roxo-vivo:       #8A2C25;   /* base do gradiente do botão sólido */
+  --roxo-brilho:     #B84139;
+  --acento-glow: rgba(138, 44, 37, 0.3);
 
   --fonte-titulo: var(--font-cormorant), serif;
   --fonte-sub:    var(--font-cormorant), serif;
