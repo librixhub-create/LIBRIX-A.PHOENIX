@@ -23,17 +23,18 @@
   --vidro-hover:     rgba(242, 236, 225, 0.09);
   --vidro-borda:     rgba(176, 141, 87, 0.22);
   --vidro-borda-hover: rgba(176, 141, 87, 0.5);
-  --roxo-vivo:       #6E3B3B;
-  --roxo-brilho:     #9C5F5A;
-  --acento-glow: rgba(110, 59, 59, 0.3);
+  --roxo-vivo:       #5C2E2E;   /* bordô profundo — refinado, menos "glossy" que o tom anterior */
+  --roxo-brilho:     #7A4040;
+  --acento-glow: rgba(92, 46, 46, 0.28);
 
   --fonte-titulo: var(--font-cormorant), serif;
   --fonte-sub:    var(--font-cormorant), serif;
-  --fonte-ui:     var(--font-cormorant), serif;
+  --fonte-ui:     var(--font-inter), -apple-system, sans-serif;
   --fonte-corpo:  var(--font-source-serif), serif;
 
   --max-largura: 1180px;
   --transicao: 0.35s ease;
+  --radius-botao: 10px;
 }
 
 /* ============================================================
@@ -75,6 +76,7 @@ section { position: relative; }
    ============================================================ */
 .titulo-secao {
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -161,69 +163,59 @@ section { position: relative; }
 }
 
 /* ============================================================
-   BOTÕES (com micro-interação de ondulação / ripple)
+   BOTÕES
    ============================================================ */
 .botao {
   display: inline-block;
   position: relative;
   overflow: hidden;
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  padding: 16px 38px;
-  border: 1px solid var(--ouro);
-  border-radius: 2px;
+  padding: 16px 36px;
+  border: 1.5px solid var(--ouro);
+  border-radius: var(--radius-botao);
   cursor: pointer;
   transition: var(--transicao);
   white-space: nowrap;
   isolation: isolate;
 }
 
-.botao::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, transparent 70%);
-  transform: scale(0);
-  transition: transform 0.5s ease;
-  pointer-events: none;
-}
-.botao:hover::after { transform: scale(2.4); }
-
 .botao-solido {
-  background: linear-gradient(135deg, var(--roxo-vivo) 0%, var(--roxo-brilho) 100%);
+  background: linear-gradient(155deg, var(--roxo-brilho) 0%, var(--roxo-vivo) 100%);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 4px 20px var(--acento-glow);
+  box-shadow: 0 2px 10px var(--acento-glow);
 }
 .botao-solido:hover {
-  background: linear-gradient(135deg, #5A3030 0%, var(--roxo-vivo) 100%);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 8px 32px var(--acento-glow);
+  box-shadow: 0 10px 28px var(--acento-glow);
   transform: translateY(-2px);
 }
 
 .botao-contorno {
-  background: var(--vidro);
-  color: var(--violeta-claro);
-  border-color: var(--vidro-borda-hover);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
+  color: var(--creme);
+  border-color: rgba(242, 236, 225, 0.45);
 }
 .botao-contorno:hover {
-  background: rgba(110, 59, 59, 0.18);
-  color: #fff;
-  border-color: var(--roxo-brilho);
-  box-shadow: 0 0 20px var(--acento-glow);
+  background: var(--ouro);
+  color: var(--sombra);
+  border-color: var(--ouro);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
 }
 
 /* Variante usada sobre fundo claro, onde o contorno violeta lê melhor que o dourado */
 .botao-contorno-violeta {
   border-color: var(--violeta);
   color: var(--violeta);
+}
+.botao-contorno-violeta:hover {
+  background: var(--violeta);
+  color: #fff;
+  border-color: var(--violeta);
 }
 
 .botao-escuro {
@@ -233,11 +225,14 @@ section { position: relative; }
   width: 100%;
   text-align: center;
   padding: 18px 38px;
+  box-shadow: 0 2px 10px rgba(20, 17, 15, 0.2);
 }
 .botao-escuro:hover {
-  background: var(--violeta);
+  background: var(--roxo-vivo);
+  border-color: var(--roxo-vivo);
   color: var(--creme);
-  border-color: var(--violeta);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--acento-glow);
 }
 
 .grupo-botoes {
@@ -367,6 +362,7 @@ body.tem-oferta-banner .nav { top: 46px; }
   align-items: center;
   gap: 12px;
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.16em;
   color: var(--ouro);
@@ -390,8 +386,9 @@ body.tem-oferta-banner .nav { top: 46px; }
 
 .nav-links a {
   font-family: var(--fonte-ui);
+  font-weight: 500;
   font-size: 12.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--creme);
   position: relative;
@@ -1067,12 +1064,13 @@ body.tem-oferta-banner .nav { top: 46px; }
 .livro-info .badge {
   display: inline-block;
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ouro-escuro);
   border: 1px solid var(--ouro-escuro);
-  border-radius: 2px;
+  border-radius: 999px;
   padding: 8px 18px;
   margin-bottom: 0;
 }
@@ -1135,6 +1133,7 @@ body.tem-oferta-banner .nav { top: 46px; }
 }
 .formato-chip {
   font-family: var(--fonte-ui);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2173,11 +2172,12 @@ body.tem-oferta-banner .nav { top: 46px; }
   background: #25D366;
   color: #fff;
   border: 1px solid #25D366;
-  border-radius: 2px;
+  border-radius: var(--radius-botao);
   padding: 16px 34px;
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -3364,11 +3364,12 @@ body.tem-oferta-banner .nav { top: 46px; }
   background: #1DB954;
   color: #000;
   border: 1px solid #1DB954;
-  border-radius: 2px;
+  border-radius: var(--radius-botao);
   padding: 16px 34px;
   font-family: var(--fonte-ui);
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
